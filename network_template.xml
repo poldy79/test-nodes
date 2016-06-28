@@ -1,0 +1,6 @@
+<network>
+  <name>ffs-s01gw01n00</name>
+  <uuid>UUID</uuid>
+  <bridge name='ffs-s01gw01n00' stp='on' delay='0'/>
+</network>
+
