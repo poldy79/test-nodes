@@ -1,1 +1,6 @@
 *.pyc
+site-ffs
+peers-ffs
+peers
+fastd
+networks
