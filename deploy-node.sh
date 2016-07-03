@@ -1,12 +1,22 @@
-virsh destroy gluon-setup
-virsh undefine gluon-setup
+#!/bin/bash
+#Parameter:
+#1: name: s00-gw01
+#2: network ffs-c0000
+#3: mac
+#4: secret
+NAME=$1
+NETWORK=$2
+MAC=$3
+SECRET=$4
+virsh destroy $NAME
+virsh undefine $NAME
 
-curl  -s http://gw01.freifunk-stuttgart.de/gluon/stable/factory/gluon-ffs-x86-kvm.img.gz | gunzip  > /var/lib/libvirt/images/gluon-setup.img
+curl  -s http://gw01.freifunk-stuttgart.de/gluon/stable/factory/gluon-ffs-x86-kvm.img.gz | gunzip  > /var/lib/libvirt/images/$NAME.img
 
-virt-install --name gluon-setup --ram 1024 -f /var/lib/libvirt/images/gluon-setup.img,device=disk --noautoconsole --network=network=gluon-config,model=virtio --import
+ifconfig $NETWORK:0 192.168.1.100
+virt-install --name $NAME --ram 256 -f /var/lib/libvirt/images/$NAME.img,device=disk --noautoconsole --network network=$NETWORK,model=virtio,mac=$MAC --network network=ffs-nodes,model=virtio --import
 
 sleep 30
-
 expect << EOF
 spawn telnet 192.168.1.1
 expect -re ".*#"
@@ -16,13 +26,12 @@ send "reboot\n\r"
 expect -re ".*#"
 EOF
 sleep 30
-ID=`ssh gluon-setup uci get system.@system[0].hostname`
+ssh gluon-setup uci set fastd.mesh_vpn.secret=$SECRET
+ssh gluon-setup uci commit fastd
 ssh gluon-setup uci set gluon-setup-mode.@setup_mode[0].enabled='0'
 ssh gluon-setup uci set gluon-setup-mode.@setup_mode[0].configured='1'
 ssh gluon-setup uci commit gluon-setup-mode
-ssh gluon-setup uci set system.@system[0].hostname='ffs-PoldyTestKvm-s01-gw01n00'
+ssh gluon-setup uci set system.@system[0].hostname='$NAME'
 ssh gluon-setup uci commit system
-KEY=`ssh gluon-setup /etc/init.d/fastd show_key mesh_vpn`
-echo $KEY
-echo $ID
-
+ssh gluon-setup /etc/init.d/system reload
+ifconfig $NETWORK:0 down
