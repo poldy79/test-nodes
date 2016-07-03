@@ -45,6 +45,14 @@ def generatePeerFile(name,mac,public,segment):
     fp.close()
 
 gws = {}
+ports ={}
+ports["vpn00"] = "10037"
+ports["vpn01"] = "10041"
+ports["vpn02"] = "10042"
+ports["vpn03"] = "10043"
+ports["vpn04"] = "10044"
+
+
 gws["gw01"] = [0,1,2,3,4]
 gws["gw05n01"] = [0,1,2,3,4]
 gws["gw05n02"] = [1,2]
@@ -81,6 +89,8 @@ for s in [0,1,2,3,4]:
             instance["if_name"] = "ffs-c%s%s"%(segment,gw.replace("gw","").replace("n",""))
             instance["segment"] = "vpn%s"%(segment)
             instance["node_id"] = "ffs-%s"%(instance["mac"].replace(":",""))
+            instance["gw"] = gw[0:4]
+            instance["remote"] = gw
             instances[name] = instance
             generateNetworkConfig(instance)
             generatePeerFile(instance["name"],instance["mac"],instance["public"],instance["segment"])
@@ -90,4 +100,4 @@ fp.close()
 
 for instance in instances:
     i = instances[instance]
-    print "./deploy-node.sh  %s %s %s %s"%(i["name"],i["if_name"],i["mac"],i["secret"])
+    print "./deploy-node.sh  %s %s %s %s %s %s.freifunk-stuttgart.de %s"%(i["name"],i["if_name"],i["mac"],i["secret"],i["gw"],i["remote"],ports[i["segment"]])
