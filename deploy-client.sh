@@ -1,5 +1,5 @@
 #!/bin/bash
-#lxc-destroy -f -n $1
+lxc-destroy -f -n $1
 lxc-stop  -n $1
 
 IPV6=$5
@@ -13,6 +13,12 @@ lxc.network.type = veth
 lxc.network.flags = up
 lxc.network.link = $2
 lxc.network.hwaddr = $4
+
+lxc.network.type = veth
+lxc.network.flags = up
+lxc.network.link = br0
+lxc.network.hwaddr = $6
+
 " > config 
 ROOT="/var/lib/lxc/$1/rootfs"
 
@@ -22,10 +28,11 @@ nameserver 8.8.8.8
 " > $ROOT/etc/resolv.conf
 chroot $ROOT apt-get update
 I="chroot $ROOT apt-get -q -y --no-install-recommends  install"
-$I httping vim mtr wget iputils-ping nagios-nrpe-server monitoring-plugins-basic bind9-host nagios-plugins-standard monitoring-plugins-standard dnsutils cron bind9-host
+$I httping vim mtr wget iputils-ping nagios-nrpe-server monitoring-plugins-basic bind9-host nagios-plugins-standard monitoring-plugins-standard dnsutils cron bind9-host dhcpcd5 screen
 chroot $ROOT chmod u+s /bin/ping
 chroot $ROOT mkdir /root/.ssh
 cp /root/.ssh/id_rsa.pub $ROOT/root/.ssh/authorized_keys
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMKsEPb02P1+nNbt2+8OYgvFiY4rPNAfosbjD4DBUgS4b0N4hXe6AgvV7xFrardPJr7APbLVnNlIWRmSHcXNyFdYdFvg8Kp8OzF7iPqguqEwsZR8yvqa+45DCGzsnRcgCf0DIFgt2nXETcoypf5EUm8Q2fowV1gWLTxo5ih50zSHUi1Nxi/DpvlNJtz1q9gbbiwmb/3eMlIFtEjrAlOHlK/UbVE/NO7AF6XcT2TpehmyHZTmUejmKnVDQ1lkv/tkspymPVqqBsA3XAAqm95DeAzZ5OeQ3YtA+dsYBC0SgC+hP6ZfshmWp/5LBQsnxfUoiapvL5iwcGoCA6zTjweAFv root@gw01n03" >> $ROOT/root/.ssh/authorized_keys
 echo "
 log_facility=daemon
 pid_file=/var/run/nagios/nrpe.pid
@@ -57,6 +64,20 @@ iface eth0 inet6 static
             
 auto eth1
 iface eth1 inet dhcp
+
+auto eth2
+iface eth2 inet manual
+iface eth2 inet6 static
+    address $7
+    netmask 64
+    up ip -6 route add 2001:4ba0:fff1:1:beef::1 dev eth2 || true
+    down ip -6 route del 2001:4ba0:fff1:1:beef::1 dev eth2 || true
+    up ip -6 route add 2001:4ba0:fff1:f8::/64  via 2001:4ba0:fff1:1:beef::1 || true
+    down ip -6 route del 2001:4ba0:fff1:f8::/64  via 2001:4ba0:fff1:1:beef::1 || true
+    #up ip -6 route add default via 2001:4ba0:fff1:1:beef::1 dev eth2 || true
+    #down ip -6 route del default via 2001:4ba0:fff1:1:beef::1 dev eth2 || true
+
+
 " > $ROOT/etc/network/interfaces
 
 

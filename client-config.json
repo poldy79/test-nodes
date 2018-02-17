@@ -1,457 +1,1100 @@
 {
     "ffs-client-s04gw05n01": {
         "node": "s04gw05n01", 
-        "net": "ffs-c040501", 
         "addr": "fd42::04:05:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:05:01", 
+        "net": "ffs-c040501", 
+        "eth2": "02:70:7c:8a:fc:6d", 
         "eth1": "02:7d:4d:46:19:fa", 
         "eth0": "02:50:2e:d2:c0:23"
     }, 
     "ffs-client-s04gw05n03": {
         "node": "s04gw05n03", 
-        "net": "ffs-c040503", 
         "addr": "fd42::04:05:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:05:03", 
+        "net": "ffs-c040503", 
+        "eth2": "02:da:c7:81:f3:f8", 
         "eth1": "02:6f:9b:6a:66:7c", 
         "eth0": "02:cb:50:8a:a6:15"
     }, 
     "ffs-client-s03gw01": {
         "node": "s03gw01", 
-        "net": "ffs-c0301", 
         "addr": "fd42::03:01:0", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:01:0", 
+        "net": "ffs-c0301", 
+        "eth2": "02:7b:f5:75:fd:c5", 
         "eth1": "02:4a:f7:17:17:71", 
         "eth0": "02:ef:f4:08:01:77"
     }, 
-    "ffs-client-s00gw08n00": {
-        "node": "s00gw08n00", 
-        "net": "ffs-c000800", 
-        "addr": "fd42::00:08:00", 
-        "eth1": "02:3b:ba:75:cf:2b", 
-        "eth0": "02:4a:49:95:fd:bd"
-    }, 
-    "ffs-client-s05gw01n03": {
-        "node": "s05gw01n03", 
-        "net": "ffs-c050103", 
-        "addr": "fd42::05:01:03", 
-        "eth1": "02:d8:ab:c7:43:df", 
-        "eth0": "02:a7:57:81:68:2e"
-    }, 
-    "ffs-client-s01gw01n03": {
-        "node": "s01gw01n03", 
-        "net": "ffs-c010103", 
-        "addr": "fd42::01:01:03", 
-        "eth1": "02:67:fd:f3:c3:56", 
-        "eth0": "02:84:28:87:01:18"
-    }, 
-    "ffs-client-s01gw01n01": {
-        "node": "s01gw01n01", 
-        "net": "ffs-c010101", 
-        "addr": "fd42::01:01:01", 
-        "eth1": "02:3a:00:84:84:e7", 
-        "eth0": "02:aa:0c:7a:50:79"
-    }, 
-    "ffs-client-s03gw01n01": {
-        "node": "s03gw01n01", 
-        "net": "ffs-c030101", 
-        "addr": "fd42::03:01:01", 
-        "eth1": "02:62:a6:04:2a:70", 
-        "eth0": "02:88:c7:cb:38:d0"
+    "ffs-client-s04gw05n04": {
+        "node": "s04gw05n04", 
+        "addr": "fd42::04:05:04", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:05:04", 
+        "net": "ffs-c040504", 
+        "eth2": "02:8f:c2:f7:71:22", 
+        "eth1": "02:d4:d9:b8:5a:0a", 
+        "eth0": "02:55:23:e1:90:2d"
     }, 
     "ffs-client-s04gw05n02": {
         "node": "s04gw05n02", 
-        "net": "ffs-c040502", 
         "addr": "fd42::04:05:02", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:05:02", 
+        "net": "ffs-c040502", 
+        "eth2": "02:51:00:31:b8:af", 
         "eth1": "02:9e:3a:b4:9c:c6", 
         "eth0": "02:ef:c4:37:fb:d6"
     }, 
-    "ffs-client-s02gw05n03": {
-        "node": "s02gw05n03", 
-        "net": "ffs-c020503", 
-        "addr": "fd42::02:05:03", 
-        "eth1": "02:ce:35:29:73:cb", 
-        "eth0": "02:98:e9:73:01:d4"
+    "ffs-client-s15gw08n01": {
+        "node": "s15gw08n01", 
+        "addr": "fd42::15:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:15:08:01", 
+        "net": "ffs-c150801", 
+        "eth2": "02:f2:0b:23:77:c2", 
+        "eth1": "02:06:d2:ed:f9:0c", 
+        "eth0": "02:4c:a0:f2:c8:57"
     }, 
-    "ffs-client-s02gw05n02": {
-        "node": "s02gw05n02", 
-        "net": "ffs-c020502", 
-        "addr": "fd42::02:05:02", 
-        "eth1": "02:46:c5:1b:2e:0d", 
-        "eth0": "02:70:9d:e0:0b:b7"
-    }, 
-    "ffs-client-s02gw05n01": {
-        "node": "s02gw05n01", 
-        "net": "ffs-c020501", 
-        "addr": "fd42::02:05:01", 
-        "eth1": "02:53:fa:2b:1f:32", 
-        "eth0": "02:46:4f:f9:95:e6"
-    }, 
-    "ffs-client-s07gw01n03": {
-        "node": "s07gw01n03", 
-        "net": "ffs-c070103", 
-        "addr": "fd42::07:01:03", 
-        "eth1": "02:4f:4f:82:07:ae", 
-        "eth0": "02:b9:18:22:3a:89"
-    }, 
-    "ffs-client-s02gw08n00": {
-        "node": "s02gw08n00", 
-        "net": "ffs-c020800", 
-        "addr": "fd42::02:08:00", 
-        "eth1": "02:7d:01:8c:aa:67", 
-        "eth0": "02:fd:11:37:22:69"
-    }, 
-    "ffs-client-s02gw08n02": {
-        "node": "s02gw08n02", 
-        "net": "ffs-c020802", 
-        "addr": "fd42::02:08:02", 
-        "eth1": "02:56:50:93:b5:88", 
-        "eth0": "02:f1:0d:1d:5d:6a"
-    }, 
-    "ffs-client-s02gw08n04": {
-        "node": "s02gw08n04", 
-        "net": "ffs-c020804", 
-        "addr": "fd42::02:08:04", 
-        "eth1": "02:e2:1b:cf:10:88", 
-        "eth0": "02:be:5d:70:66:37"
-    }, 
-    "ffs-client-s01gw01": {
-        "node": "s01gw01", 
-        "net": "ffs-c0101", 
-        "addr": "fd42::01:01:0", 
-        "eth1": "02:ec:ce:b9:76:5b", 
-        "eth0": "02:e5:0e:fa:1f:2c"
+    "ffs-client-s05gw04n01": {
+        "node": "s05gw04n01", 
+        "addr": "fd42::05:04:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:05:04:01", 
+        "net": "ffs-c050401", 
+        "eth2": "02:d4:81:11:be:50", 
+        "eth1": "02:44:4c:27:a4:cd", 
+        "eth0": "02:bd:4b:cf:e8:38"
     }, 
     "ffs-client-s02gw01": {
         "node": "s02gw01", 
-        "net": "ffs-c0201", 
         "addr": "fd42::02:01:0", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:01:0", 
+        "net": "ffs-c0201", 
+        "eth2": "02:36:23:29:53:9d", 
         "eth1": "02:b8:a3:6a:e4:fe", 
         "eth0": "02:7d:d3:f6:68:8a"
     }, 
     "ffs-client-s01gw10": {
         "node": "s01gw10", 
-        "net": "ffs-c0110", 
         "addr": "fd42::01:10:0", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:10:0", 
+        "net": "ffs-c0110", 
+        "eth2": "02:6b:9f:22:8b:9f", 
         "eth1": "02:5d:e1:a7:63:af", 
         "eth0": "02:28:c4:69:a9:fa"
     }, 
+    "ffs-client-s19gw01n03": {
+        "node": "s19gw01n03", 
+        "addr": "fd42::19:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:19:01:03", 
+        "net": "ffs-c190103", 
+        "eth2": "02:d1:2a:33:06:d1", 
+        "eth1": "02:52:75:47:21:e6", 
+        "eth0": "02:93:36:db:2e:c8"
+    }, 
     "ffs-client-s01gw07n00": {
         "node": "s01gw07n00", 
-        "net": "ffs-c010700", 
         "addr": "fd42::01:07:00", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:07:00", 
+        "net": "ffs-c010700", 
+        "eth2": "02:74:35:5e:a7:5c", 
         "eth1": "02:35:25:2c:3d:71", 
         "eth0": "02:84:2b:8f:6c:25"
     }, 
-    "ffs-client-s02gw10": {
-        "node": "s02gw10", 
-        "net": "ffs-c0210", 
-        "addr": "fd42::02:10:0", 
-        "eth1": "02:78:8d:53:e2:a9", 
-        "eth0": "02:bc:c0:e9:04:83"
-    }, 
     "ffs-client-s01gw07n02": {
         "node": "s01gw07n02", 
-        "net": "ffs-c010702", 
         "addr": "fd42::01:07:02", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:07:02", 
+        "net": "ffs-c010702", 
+        "eth2": "02:7b:7a:35:66:a2", 
         "eth1": "02:06:9b:ff:f4:a2", 
         "eth0": "02:5e:fa:d5:00:04"
     }, 
-    "ffs-client-s03gw05n01": {
-        "node": "s03gw05n01", 
-        "net": "ffs-c030501", 
-        "addr": "fd42::03:05:01", 
-        "eth1": "02:0b:ad:2f:5e:cf", 
-        "eth0": "02:d9:f5:92:0b:e4"
-    }, 
-    "ffs-client-s03gw05n02": {
-        "node": "s03gw05n02", 
-        "net": "ffs-c030502", 
-        "addr": "fd42::03:05:02", 
-        "eth1": "02:c4:c1:5a:e5:e1", 
-        "eth0": "02:bf:f4:f1:97:01"
-    }, 
-    "ffs-client-s03gw05n03": {
-        "node": "s03gw05n03", 
-        "net": "ffs-c030503", 
-        "addr": "fd42::03:05:03", 
-        "eth1": "02:81:4f:ef:16:18", 
-        "eth0": "02:c3:1d:30:1a:b5"
-    }, 
     "ffs-client-s00gw01n01": {
         "node": "s00gw01n01", 
-        "net": "ffs-c000101", 
         "addr": "fd42::00:01:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:00:01:01", 
+        "net": "ffs-c000101", 
+        "eth2": "02:26:e9:5e:0c:52", 
         "eth1": "02:3c:82:da:ff:b1", 
         "eth0": "02:7d:2b:e8:29:06"
     }, 
+    "ffs-client-s00gw01n03": {
+        "node": "s00gw01n03", 
+        "addr": "fd42::00:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:00:01:03", 
+        "net": "ffs-c000103", 
+        "eth2": "02:5b:98:e9:4a:59", 
+        "eth1": "02:74:a8:7b:13:93", 
+        "eth0": "02:a4:ec:d2:53:22"
+    }, 
     "ffs-client-s00gw07n00": {
         "node": "s00gw07n00", 
-        "net": "ffs-c000700", 
         "addr": "fd42::00:07:00", 
+        "addrV6": "2001:4ba0:fff1:f8:42:00:07:00", 
+        "net": "ffs-c000700", 
+        "eth2": "02:32:fc:76:64:5e", 
         "eth1": "02:1e:83:af:bf:0c", 
         "eth0": "02:46:e8:b6:ad:c3"
     }, 
-    "ffs-client-s04gw01n01": {
-        "node": "s04gw01n01", 
-        "net": "ffs-c040101", 
-        "addr": "fd42::04:01:01", 
-        "eth1": "02:0d:1e:eb:33:47", 
-        "eth0": "02:1b:a6:7f:6e:56"
-    }, 
-    "ffs-client-s04gw01n03": {
-        "node": "s04gw01n03", 
-        "net": "ffs-c040103", 
-        "addr": "fd42::04:01:03", 
-        "eth1": "02:d4:18:ec:dd:85", 
-        "eth0": "02:43:c6:1c:b7:cb"
-    }, 
-    "ffs-client-s03gw07n02": {
-        "node": "s03gw07n02", 
-        "net": "ffs-c030702", 
-        "addr": "fd42::03:07:02", 
-        "eth1": "02:b0:a7:73:fd:7f", 
-        "eth0": "02:80:31:22:9f:38"
-    }, 
-    "ffs-client-s00gw10": {
-        "node": "s00gw10", 
-        "net": "ffs-c0010", 
-        "addr": "fd42::00:10:0", 
-        "eth1": "02:3d:1e:d7:93:f8", 
-        "eth0": "02:24:2a:2a:fa:11"
+    "ffs-client-s15gw01n03": {
+        "node": "s15gw01n03", 
+        "addr": "fd42::15:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:15:01:03", 
+        "net": "ffs-c150103", 
+        "eth2": "02:99:d9:cc:7e:04", 
+        "eth1": "02:ad:5b:82:8b:b4", 
+        "eth0": "02:e2:9a:46:a3:63"
     }, 
     "ffs-client-s03gw10": {
         "node": "s03gw10", 
-        "net": "ffs-c0310", 
         "addr": "fd42::03:10:0", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:10:0", 
+        "net": "ffs-c0310", 
+        "eth2": "02:16:bf:07:54:7a", 
         "eth1": "02:c1:8e:88:8d:64", 
         "eth0": "02:db:c0:03:7f:40"
     }, 
-    "ffs-client-s05gw01n01": {
-        "node": "s05gw01n01", 
-        "net": "ffs-c050101", 
-        "addr": "fd42::05:01:01", 
-        "eth1": "02:26:42:51:fb:11", 
-        "eth0": "02:e5:92:f1:e6:98"
+    "ffs-client-s12gw08n01": {
+        "node": "s12gw08n01", 
+        "addr": "fd42::12:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:12:08:01", 
+        "net": "ffs-c120801", 
+        "eth2": "02:01:68:36:17:00", 
+        "eth1": "02:7e:de:ba:9b:10", 
+        "eth0": "02:70:c3:d1:3d:22"
     }, 
-    "ffs-client-s03gw08n04": {
-        "node": "s03gw08n04", 
-        "net": "ffs-c030804", 
-        "addr": "fd42::03:08:04", 
-        "eth1": "02:30:da:a3:cb:99", 
-        "eth0": "02:11:dc:11:ee:71"
+    "ffs-client-s14gw01n03": {
+        "node": "s14gw01n03", 
+        "addr": "fd42::14:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:14:01:03", 
+        "net": "ffs-c140103", 
+        "eth2": "02:ff:67:47:a8:49", 
+        "eth1": "02:89:86:d1:08:53", 
+        "eth0": "02:aa:b2:97:f4:55"
     }, 
-    "ffs-client-s04gw08n02": {
-        "node": "s04gw08n02", 
-        "net": "ffs-c040802", 
-        "addr": "fd42::04:08:02", 
-        "eth1": "02:01:b5:b7:e5:26", 
-        "eth0": "02:5d:dc:1c:13:67"
+    "ffs-client-s10gw01n03": {
+        "node": "s10gw01n03", 
+        "addr": "fd42::10:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:10:01:03", 
+        "net": "ffs-c100103", 
+        "eth2": "02:2e:bd:f5:f4:66", 
+        "eth1": "02:d3:30:c1:c3:22", 
+        "eth0": "02:aa:f0:79:4f:3d"
     }, 
     "ffs-client-s02gw07n00": {
         "node": "s02gw07n00", 
-        "net": "ffs-c020700", 
         "addr": "fd42::02:07:00", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:07:00", 
+        "net": "ffs-c020700", 
+        "eth2": "02:01:aa:29:c6:13", 
         "eth1": "02:93:5a:db:b2:1f", 
         "eth0": "02:ef:e8:3f:f3:e2"
     }, 
-    "ffs-client-s04gw08n00": {
-        "node": "s04gw08n00", 
-        "net": "ffs-c040800", 
-        "addr": "fd42::04:08:00", 
-        "eth1": "02:de:aa:e6:4d:e2", 
-        "eth0": "02:7d:09:3c:ba:36"
-    }, 
     "ffs-client-s02gw07n02": {
         "node": "s02gw07n02", 
-        "net": "ffs-c020702", 
         "addr": "fd42::02:07:02", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:07:02", 
+        "net": "ffs-c020702", 
+        "eth2": "02:74:e7:49:c9:d4", 
         "eth1": "02:08:f0:f4:47:cc", 
         "eth0": "02:7f:53:84:07:69"
     }, 
-    "ffs-client-s03gw01n03": {
-        "node": "s03gw01n03", 
-        "net": "ffs-c030103", 
-        "addr": "fd42::03:01:03", 
-        "eth1": "02:80:49:7d:1d:cb", 
-        "eth0": "02:27:1b:8b:3e:a5"
-    }, 
-    "ffs-client-s04gw07n02": {
-        "node": "s04gw07n02", 
-        "net": "ffs-c040702", 
-        "addr": "fd42::04:07:02", 
-        "eth1": "02:f9:b2:89:69:24", 
-        "eth0": "02:1b:4a:1d:45:54"
-    }, 
-    "ffs-client-s04gw08n04": {
-        "node": "s04gw08n04", 
-        "net": "ffs-c040804", 
-        "addr": "fd42::04:08:04", 
-        "eth1": "02:54:9c:86:a1:d4", 
-        "eth0": "02:00:67:54:bb:0e"
-    }, 
-    "ffs-client-s04gw07n00": {
-        "node": "s04gw07n00", 
-        "net": "ffs-c040700", 
-        "addr": "fd42::04:07:00", 
-        "eth1": "02:e7:50:93:2e:70", 
-        "eth0": "02:a8:b4:8e:9c:57"
-    }, 
-    "ffs-client-s03gw08n02": {
-        "node": "s03gw08n02", 
-        "net": "ffs-c030802", 
-        "addr": "fd42::03:08:02", 
-        "eth1": "02:c6:ee:d4:ad:69", 
-        "eth0": "02:dd:79:e2:c1:9a"
-    }, 
-    "ffs-client-s04gw01": {
-        "node": "s04gw01", 
-        "net": "ffs-c0401", 
-        "addr": "fd42::04:01:0", 
-        "eth1": "02:63:e3:ea:f9:94", 
-        "eth0": "02:26:45:c9:9a:c1"
-    }, 
-    "ffs-client-s03gw08n00": {
-        "node": "s03gw08n00", 
-        "net": "ffs-c030800", 
-        "addr": "fd42::03:08:00", 
-        "eth1": "02:55:21:29:83:fd", 
-        "eth0": "02:7b:06:47:f4:60"
-    }, 
     "ffs-client-s00gw05n01": {
         "node": "s00gw05n01", 
-        "net": "ffs-c000501", 
         "addr": "fd42::00:05:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:00:05:01", 
+        "net": "ffs-c000501", 
+        "eth2": "02:dd:cc:7f:b6:09", 
         "eth1": "02:ae:6f:cd:2a:0e", 
         "eth0": "02:3c:11:49:98:a7"
     }, 
     "ffs-client-s00gw05n03": {
         "node": "s00gw05n03", 
-        "net": "ffs-c000503", 
         "addr": "fd42::00:05:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:00:05:03", 
+        "net": "ffs-c000503", 
+        "eth2": "02:ad:6c:57:cc:b3", 
         "eth1": "02:08:cd:d6:53:fc", 
         "eth0": "02:ad:61:13:6a:eb"
     }, 
     "ffs-client-s00gw05n02": {
         "node": "s00gw05n02", 
-        "net": "ffs-c000502", 
         "addr": "fd42::00:05:02", 
+        "addrV6": "2001:4ba0:fff1:f8:42:00:05:02", 
+        "net": "ffs-c000502", 
+        "eth2": "02:d8:81:1e:ea:33", 
         "eth1": "02:33:c5:7c:3c:b0", 
         "eth0": "02:1f:6a:f5:01:b5"
     }, 
     "ffs-client-s08gw01n01": {
         "node": "s08gw01n01", 
-        "net": "ffs-c080101", 
         "addr": "fd42::08:01:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:08:01:01", 
+        "net": "ffs-c080101", 
+        "eth2": "02:e4:bc:fe:ce:28", 
         "eth1": "02:c4:81:bf:ee:df", 
         "eth0": "02:e2:8d:3d:f9:a7"
     }, 
-    "ffs-client-s01gw08n00": {
-        "node": "s01gw08n00", 
-        "net": "ffs-c010800", 
-        "addr": "fd42::01:08:00", 
-        "eth1": "02:60:af:1b:e6:c0", 
-        "eth0": "02:95:1b:83:24:3b"
-    }, 
     "ffs-client-s08gw01n03": {
         "node": "s08gw01n03", 
-        "net": "ffs-c080103", 
         "addr": "fd42::08:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:08:01:03", 
+        "net": "ffs-c080103", 
+        "eth2": "02:08:12:77:6d:e8", 
         "eth1": "02:03:1e:ad:54:de", 
         "eth0": "02:87:d9:dd:c5:75"
     }, 
-    "ffs-client-s01gw08n02": {
-        "node": "s01gw08n02", 
-        "net": "ffs-c010802", 
-        "addr": "fd42::01:08:02", 
-        "eth1": "02:40:16:d8:b4:48", 
-        "eth0": "02:90:2a:55:12:9a"
+    "ffs-client-s21gw01n03": {
+        "node": "s21gw01n03", 
+        "addr": "fd42::21:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:21:01:03", 
+        "net": "ffs-c210103", 
+        "eth2": "02:2e:9d:1c:d1:e6", 
+        "eth1": "02:01:93:e5:0e:c7", 
+        "eth0": "02:c5:d3:41:7f:ee"
+    }, 
+    "ffs-client-s20gw01n03": {
+        "node": "s20gw01n03", 
+        "addr": "fd42::20:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:20:01:03", 
+        "net": "ffs-c200103", 
+        "eth2": "02:36:dc:44:6e:5b", 
+        "eth1": "02:53:15:16:87:91", 
+        "eth0": "02:13:68:aa:cd:96"
+    }, 
+    "ffs-client-s03gw04n01": {
+        "node": "s03gw04n01", 
+        "addr": "fd42::03:04:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:04:01", 
+        "net": "ffs-c030401", 
+        "eth2": "02:50:79:b7:8f:2f", 
+        "eth1": "02:01:cf:b9:f0:ca", 
+        "eth0": "02:82:fc:94:62:eb"
+    }, 
+    "ffs-client-s00gw08n00": {
+        "node": "s00gw08n00", 
+        "addr": "fd42::00:08:00", 
+        "addrV6": "2001:4ba0:fff1:f8:42:00:08:00", 
+        "net": "ffs-c000800", 
+        "eth2": "02:03:43:25:e9:03", 
+        "eth1": "02:3b:ba:75:cf:2b", 
+        "eth0": "02:4a:49:95:fd:bd"
+    }, 
+    "ffs-client-s05gw08n06": {
+        "node": "s05gw08n06", 
+        "addr": "fd42::05:08:06", 
+        "addrV6": "2001:4ba0:fff1:f8:42:05:08:06", 
+        "net": "ffs-c050806", 
+        "eth2": "02:92:f4:56:a4:e0", 
+        "eth1": "02:75:4b:92:aa:2f", 
+        "eth0": "02:1c:d5:77:84:4e"
+    }, 
+    "ffs-client-s05gw08n01": {
+        "node": "s05gw08n01", 
+        "addr": "fd42::05:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:05:08:01", 
+        "net": "ffs-c050801", 
+        "eth2": "02:33:f0:17:27:6e", 
+        "eth1": "02:71:39:ea:f8:25", 
+        "eth0": "02:bd:62:1e:e8:a4"
+    }, 
+    "ffs-client-s03gw01n01": {
+        "node": "s03gw01n01", 
+        "addr": "fd42::03:01:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:01:01", 
+        "net": "ffs-c030101", 
+        "eth2": "02:a1:dd:de:83:70", 
+        "eth1": "02:62:a6:04:2a:70", 
+        "eth0": "02:88:c7:cb:38:d0"
+    }, 
+    "ffs-client-s02gw05n04": {
+        "node": "s02gw05n04", 
+        "addr": "fd42::02:05:04", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:05:04", 
+        "net": "ffs-c020504", 
+        "eth2": "02:28:d4:a1:23:a9", 
+        "eth1": "02:ba:2e:ac:e8:ab", 
+        "eth0": "02:33:3f:2e:ac:de"
+    }, 
+    "ffs-client-s02gw05n03": {
+        "node": "s02gw05n03", 
+        "addr": "fd42::02:05:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:05:03", 
+        "net": "ffs-c020503", 
+        "eth2": "02:07:82:94:65:d6", 
+        "eth1": "02:ce:35:29:73:cb", 
+        "eth0": "02:98:e9:73:01:d4"
+    }, 
+    "ffs-client-s02gw05n02": {
+        "node": "s02gw05n02", 
+        "addr": "fd42::02:05:02", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:05:02", 
+        "net": "ffs-c020502", 
+        "eth2": "02:98:db:7a:45:3c", 
+        "eth1": "02:46:c5:1b:2e:0d", 
+        "eth0": "02:70:9d:e0:0b:b7"
+    }, 
+    "ffs-client-s02gw05n01": {
+        "node": "s02gw05n01", 
+        "addr": "fd42::02:05:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:05:01", 
+        "net": "ffs-c020501", 
+        "eth2": "02:a5:b2:2a:51:99", 
+        "eth1": "02:53:fa:2b:1f:32", 
+        "eth0": "02:46:4f:f9:95:e6"
+    }, 
+    "ffs-client-s07gw01n03": {
+        "node": "s07gw01n03", 
+        "addr": "fd42::07:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:07:01:03", 
+        "net": "ffs-c070103", 
+        "eth2": "02:ed:27:3d:62:3a", 
+        "eth1": "02:4f:4f:82:07:ae", 
+        "eth0": "02:b9:18:22:3a:89"
+    }, 
+    "ffs-client-s02gw08n00": {
+        "node": "s02gw08n00", 
+        "addr": "fd42::02:08:00", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:08:00", 
+        "net": "ffs-c020800", 
+        "eth2": "02:9a:b4:df:c1:de", 
+        "eth1": "02:7d:01:8c:aa:67", 
+        "eth0": "02:fd:11:37:22:69"
+    }, 
+    "ffs-client-s02gw08n01": {
+        "node": "s02gw08n01", 
+        "addr": "fd42::02:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:08:01", 
+        "net": "ffs-c020801", 
+        "eth2": "02:45:51:d4:12:25", 
+        "eth1": "02:2e:bf:3a:66:72", 
+        "eth0": "02:1d:ba:74:6d:67"
+    }, 
+    "ffs-client-s02gw08n02": {
+        "node": "s02gw08n02", 
+        "addr": "fd42::02:08:02", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:08:02", 
+        "net": "ffs-c020802", 
+        "eth2": "02:2c:1f:57:a1:44", 
+        "eth1": "02:56:50:93:b5:88", 
+        "eth0": "02:f1:0d:1d:5d:6a"
+    }, 
+    "ffs-client-s13gw08n01": {
+        "node": "s13gw08n01", 
+        "addr": "fd42::13:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:13:08:01", 
+        "net": "ffs-c130801", 
+        "eth2": "02:2c:27:48:cb:ea", 
+        "eth1": "02:66:e6:fa:2c:48", 
+        "eth0": "02:16:15:de:7b:1c"
+    }, 
+    "ffs-client-s02gw08n04": {
+        "node": "s02gw08n04", 
+        "addr": "fd42::02:08:04", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:08:04", 
+        "net": "ffs-c020804", 
+        "eth2": "02:71:f6:49:ad:d7", 
+        "eth1": "02:e2:1b:cf:10:88", 
+        "eth0": "02:be:5d:70:66:37"
+    }, 
+    "ffs-client-s02gw08n06": {
+        "node": "s02gw08n06", 
+        "addr": "fd42::02:08:06", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:08:06", 
+        "net": "ffs-c020806", 
+        "eth2": "02:57:cb:b6:7e:79", 
+        "eth1": "02:bf:40:30:ef:fe", 
+        "eth0": "02:22:65:f8:c9:ee"
+    }, 
+    "ffs-client-s03gw05n04": {
+        "node": "s03gw05n04", 
+        "addr": "fd42::03:05:04", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:05:04", 
+        "net": "ffs-c030504", 
+        "eth2": "02:38:0f:19:1d:b6", 
+        "eth1": "02:14:f8:c7:7e:00", 
+        "eth0": "02:53:b5:0d:fe:2b"
+    }, 
+    "ffs-client-s04gw10": {
+        "node": "s04gw10", 
+        "addr": "fd42::04:10:0", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:10:0", 
+        "net": "ffs-c0410", 
+        "eth2": "02:19:30:86:92:cd", 
+        "eth1": "02:06:e1:d1:9f:2c", 
+        "eth0": "02:0e:62:88:1e:dc"
+    }, 
+    "ffs-client-s03gw05n01": {
+        "node": "s03gw05n01", 
+        "addr": "fd42::03:05:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:05:01", 
+        "net": "ffs-c030501", 
+        "eth2": "02:f3:3d:49:42:ef", 
+        "eth1": "02:0b:ad:2f:5e:cf", 
+        "eth0": "02:d9:f5:92:0b:e4"
+    }, 
+    "ffs-client-s03gw05n02": {
+        "node": "s03gw05n02", 
+        "addr": "fd42::03:05:02", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:05:02", 
+        "net": "ffs-c030502", 
+        "eth2": "02:e1:8a:5c:01:64", 
+        "eth1": "02:c4:c1:5a:e5:e1", 
+        "eth0": "02:bf:f4:f1:97:01"
+    }, 
+    "ffs-client-s03gw05n03": {
+        "node": "s03gw05n03", 
+        "addr": "fd42::03:05:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:05:03", 
+        "net": "ffs-c030503", 
+        "eth2": "02:82:81:20:94:66", 
+        "eth1": "02:81:4f:ef:16:18", 
+        "eth0": "02:c3:1d:30:1a:b5"
+    }, 
+    "ffs-client-s09gw08n01": {
+        "node": "s09gw08n01", 
+        "addr": "fd42::09:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:09:08:01", 
+        "net": "ffs-c090801", 
+        "eth2": "02:91:69:e7:a5:b1", 
+        "eth1": "02:37:09:2c:f3:d0", 
+        "eth0": "02:68:2d:b3:68:73"
+    }, 
+    "ffs-client-s08gw05n04": {
+        "node": "s08gw05n04", 
+        "addr": "fd42::08:05:04", 
+        "addrV6": "2001:4ba0:fff1:f8:42:08:05:04", 
+        "net": "ffs-c080504", 
+        "eth2": "02:c4:01:34:61:7b", 
+        "eth1": "02:23:66:9b:83:ab", 
+        "eth0": "02:3b:80:e8:0c:59"
+    }, 
+    "ffs-client-s02gw04n01": {
+        "node": "s02gw04n01", 
+        "addr": "fd42::02:04:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:04:01", 
+        "net": "ffs-c020401", 
+        "eth2": "02:75:a1:08:bb:83", 
+        "eth1": "02:5b:c1:b9:02:ec", 
+        "eth0": "02:d6:b4:82:4c:ff"
+    }, 
+    "ffs-client-s06gw05n04": {
+        "node": "s06gw05n04", 
+        "addr": "fd42::06:05:04", 
+        "addrV6": "2001:4ba0:fff1:f8:42:06:05:04", 
+        "net": "ffs-c060504", 
+        "eth2": "02:90:a7:df:33:0b", 
+        "eth1": "02:fa:d1:50:90:7b", 
+        "eth0": "02:97:b4:a8:fe:68"
+    }, 
+    "ffs-client-s07gw05n04": {
+        "node": "s07gw05n04", 
+        "addr": "fd42::07:05:04", 
+        "addrV6": "2001:4ba0:fff1:f8:42:07:05:04", 
+        "net": "ffs-c070504", 
+        "eth2": "02:3a:a5:a4:49:0a", 
+        "eth1": "02:8e:a9:df:12:bd", 
+        "eth0": "02:82:b8:64:fa:ff"
+    }, 
+    "ffs-client-s24gw01n03": {
+        "node": "s24gw01n03", 
+        "addr": "fd42::24:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:24:01:03", 
+        "net": "ffs-c240103", 
+        "eth2": "02:5d:dc:f9:0e:83", 
+        "eth1": "02:b3:27:df:ca:a5", 
+        "eth0": "02:a2:ec:86:45:cd"
+    }, 
+    "ffs-client-s04gw01": {
+        "node": "s04gw01", 
+        "addr": "fd42::04:01:0", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:01:0", 
+        "net": "ffs-c0401", 
+        "eth2": "02:bc:78:ed:5b:9c", 
+        "eth1": "02:63:e3:ea:f9:94", 
+        "eth0": "02:26:45:c9:9a:c1"
+    }, 
+    "ffs-client-s22gw01n03": {
+        "node": "s22gw01n03", 
+        "addr": "fd42::22:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:22:01:03", 
+        "net": "ffs-c220103", 
+        "eth2": "02:18:52:ba:f7:b8", 
+        "eth1": "02:97:07:0f:89:91", 
+        "eth0": "02:47:69:9a:9d:d2"
+    }, 
+    "ffs-client-s08gw04n01": {
+        "node": "s08gw04n01", 
+        "addr": "fd42::08:04:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:08:04:01", 
+        "net": "ffs-c080401", 
+        "eth2": "02:9b:d2:a2:a7:23", 
+        "eth1": "02:04:cc:db:9d:1f", 
+        "eth0": "02:86:0a:72:04:2d"
     }, 
     "ffs-client-s06gw01n03": {
         "node": "s06gw01n03", 
-        "net": "ffs-c060103", 
         "addr": "fd42::06:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:06:01:03", 
+        "net": "ffs-c060103", 
+        "eth2": "02:f8:ef:3b:25:c3", 
         "eth1": "02:30:0d:ee:ea:92", 
         "eth0": "02:7f:54:8e:59:88"
     }, 
-    "ffs-client-s01gw08n04": {
-        "node": "s01gw08n04", 
-        "net": "ffs-c010804", 
-        "addr": "fd42::01:08:04", 
-        "eth1": "02:66:17:de:53:10", 
-        "eth0": "02:a2:6b:0a:26:e1"
-    }, 
     "ffs-client-s06gw01n01": {
         "node": "s06gw01n01", 
-        "net": "ffs-c060101", 
         "addr": "fd42::06:01:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:06:01:01", 
+        "net": "ffs-c060101", 
+        "eth2": "02:8d:3b:22:03:d3", 
         "eth1": "02:62:58:67:90:87", 
         "eth0": "02:ae:70:d5:41:02"
     }, 
-    "ffs-client-s01gw05n02": {
-        "node": "s01gw05n02", 
-        "net": "ffs-c010502", 
-        "addr": "fd42::01:05:02", 
-        "eth1": "02:4e:f2:f8:32:1c", 
-        "eth0": "02:57:cf:4d:43:0d"
-    }, 
-    "ffs-client-s01gw05n03": {
-        "node": "s01gw05n03", 
-        "net": "ffs-c010503", 
-        "addr": "fd42::01:05:03", 
-        "eth1": "02:fe:b7:a8:fc:ab", 
-        "eth0": "02:35:c1:30:ba:e5"
-    }, 
-    "ffs-client-s01gw05n01": {
-        "node": "s01gw05n01", 
-        "net": "ffs-c010501", 
-        "addr": "fd42::01:05:01", 
-        "eth1": "02:e8:5c:7e:21:ab", 
-        "eth0": "02:4c:66:1c:9c:8b"
-    }, 
-    "ffs-client-s00gw09": {
-        "node": "s00gw09", 
-        "net": "ffs-c0009", 
-        "addr": "fd42::00:09:0", 
-        "eth1": "02:63:63:7b:58:ef", 
-        "eth0": "02:1d:97:7a:64:1f"
+    "ffs-client-s03gw07n02": {
+        "node": "s03gw07n02", 
+        "addr": "fd42::03:07:02", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:07:02", 
+        "net": "ffs-c030702", 
+        "eth2": "02:21:88:f5:45:c3", 
+        "eth1": "02:b0:a7:73:fd:7f", 
+        "eth0": "02:80:31:22:9f:38"
     }, 
     "ffs-client-s03gw07n00": {
         "node": "s03gw07n00", 
-        "net": "ffs-c030700", 
         "addr": "fd42::03:07:00", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:07:00", 
+        "net": "ffs-c030700", 
+        "eth2": "02:fc:17:b2:bc:28", 
         "eth1": "02:71:ce:74:32:50", 
         "eth0": "02:7a:39:96:d6:cb"
     }, 
+    "ffs-client-s04gw04n01": {
+        "node": "s04gw04n01", 
+        "addr": "fd42::04:04:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:04:01", 
+        "net": "ffs-c040401", 
+        "eth2": "02:2a:df:bc:ba:02", 
+        "eth1": "02:5b:5f:8e:a6:b8", 
+        "eth0": "02:97:8e:09:de:c8"
+    }, 
+    "ffs-client-s01gw04n01": {
+        "node": "s01gw04n01", 
+        "addr": "fd42::01:04:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:04:01", 
+        "net": "ffs-c010401", 
+        "eth2": "02:a9:9c:bd:04:e2", 
+        "eth1": "02:b0:b5:a0:50:3e", 
+        "eth0": "02:eb:97:39:6b:38"
+    }, 
+    "ffs-client-s09gw01n03": {
+        "node": "s09gw01n03", 
+        "addr": "fd42::09:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:09:01:03", 
+        "net": "ffs-c090103", 
+        "eth2": "02:50:ae:db:36:4e", 
+        "eth1": "02:15:76:14:f0:ed", 
+        "eth0": "02:dc:4e:d0:a6:4a"
+    }, 
+    "ffs-client-s01gw01n03": {
+        "node": "s01gw01n03", 
+        "addr": "fd42::01:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:01:03", 
+        "net": "ffs-c010103", 
+        "eth2": "02:3d:f2:0e:47:bb", 
+        "eth1": "02:67:fd:f3:c3:56", 
+        "eth0": "02:84:28:87:01:18"
+    }, 
+    "ffs-client-s01gw01n01": {
+        "node": "s01gw01n01", 
+        "addr": "fd42::01:01:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:01:01", 
+        "net": "ffs-c010101", 
+        "eth2": "02:0c:9b:81:df:02", 
+        "eth1": "02:3a:00:84:84:e7", 
+        "eth0": "02:aa:0c:7a:50:79"
+    }, 
+    "ffs-client-s05gw05n04": {
+        "node": "s05gw05n04", 
+        "addr": "fd42::05:05:04", 
+        "addrV6": "2001:4ba0:fff1:f8:42:05:05:04", 
+        "net": "ffs-c050504", 
+        "eth2": "02:9d:3e:25:2f:b7", 
+        "eth1": "02:db:5e:b7:ab:c3", 
+        "eth0": "02:aa:f9:eb:3e:26"
+    }, 
+    "ffs-client-s11gw08n01": {
+        "node": "s11gw08n01", 
+        "addr": "fd42::11:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:11:08:01", 
+        "net": "ffs-c110801", 
+        "eth2": "02:11:69:16:cc:24", 
+        "eth1": "02:41:28:78:d7:b2", 
+        "eth0": "02:95:c8:b3:a9:aa"
+    }, 
+    "ffs-client-s07gw04n01": {
+        "node": "s07gw04n01", 
+        "addr": "fd42::07:04:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:07:04:01", 
+        "net": "ffs-c070401", 
+        "eth2": "02:6f:62:37:3c:91", 
+        "eth1": "02:2f:7c:8a:ba:bf", 
+        "eth0": "02:ae:02:8c:91:cd"
+    }, 
+    "ffs-client-s06gw08n06": {
+        "node": "s06gw08n06", 
+        "addr": "fd42::06:08:06", 
+        "addrV6": "2001:4ba0:fff1:f8:42:06:08:06", 
+        "net": "ffs-c060806", 
+        "eth2": "02:6c:97:51:c5:73", 
+        "eth1": "02:3c:8b:d2:db:57", 
+        "eth0": "02:81:a3:b3:9b:21"
+    }, 
+    "ffs-client-s08gw08n01": {
+        "node": "s08gw08n01", 
+        "addr": "fd42::08:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:08:08:01", 
+        "net": "ffs-c080801", 
+        "eth2": "02:f2:05:65:00:a0", 
+        "eth1": "02:dc:72:ba:12:2e", 
+        "eth0": "02:7e:d5:82:32:63"
+    }, 
+    "ffs-client-s06gw08n01": {
+        "node": "s06gw08n01", 
+        "addr": "fd42::06:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:06:08:01", 
+        "net": "ffs-c060801", 
+        "eth2": "02:cb:f8:cd:62:e1", 
+        "eth1": "02:a1:10:e9:8f:20", 
+        "eth0": "02:f4:c9:b7:52:7e"
+    }, 
+    "ffs-client-s10gw08n01": {
+        "node": "s10gw08n01", 
+        "addr": "fd42::10:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:10:08:01", 
+        "net": "ffs-c100801", 
+        "eth2": "02:47:85:fc:74:be", 
+        "eth1": "02:07:fe:67:88:f5", 
+        "eth0": "02:a1:fc:20:08:89"
+    }, 
+    "ffs-client-s03gw01n03": {
+        "node": "s03gw01n03", 
+        "addr": "fd42::03:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:01:03", 
+        "net": "ffs-c030103", 
+        "eth2": "02:92:ef:29:50:1b", 
+        "eth1": "02:80:49:7d:1d:cb", 
+        "eth0": "02:27:1b:8b:3e:a5"
+    }, 
+    "ffs-client-s13gw01n03": {
+        "node": "s13gw01n03", 
+        "addr": "fd42::13:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:13:01:03", 
+        "net": "ffs-c130103", 
+        "eth2": "02:60:d4:9b:46:ed", 
+        "eth1": "02:12:1a:e7:21:cb", 
+        "eth0": "02:76:71:24:68:9a"
+    }, 
     "ffs-client-s02gw01n03": {
         "node": "s02gw01n03", 
-        "net": "ffs-c020103", 
         "addr": "fd42::02:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:01:03", 
+        "net": "ffs-c020103", 
+        "eth2": "02:7c:16:aa:4f:5d", 
         "eth1": "02:86:d0:62:21:28", 
         "eth0": "02:75:6a:4d:18:1c"
     }, 
     "ffs-client-s02gw01n01": {
         "node": "s02gw01n01", 
-        "net": "ffs-c020101", 
         "addr": "fd42::02:01:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:01:01", 
+        "net": "ffs-c020101", 
+        "eth2": "02:2a:85:46:7c:17", 
         "eth1": "02:ff:8a:7c:fb:6d", 
         "eth0": "02:f6:99:b3:2b:94"
     }, 
-    "ffs-client-s00gw01": {
-        "node": "s00gw01", 
-        "net": "ffs-c0001", 
-        "addr": "fd42::00:01:0", 
-        "eth1": "02:b6:58:32:3a:8d", 
-        "eth0": "02:92:ad:90:a5:0d"
-    }, 
-    "ffs-client-s04gw10": {
-        "node": "s04gw10", 
-        "net": "ffs-c0410", 
-        "addr": "fd42::04:10:0", 
-        "eth1": "02:06:e1:d1:9f:2c", 
-        "eth0": "02:0e:62:88:1e:dc"
-    }, 
     "ffs-client-s07gw01n01": {
         "node": "s07gw01n01", 
-        "net": "ffs-c070101", 
         "addr": "fd42::07:01:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:07:01:01", 
+        "net": "ffs-c070101", 
+        "eth2": "02:b5:66:00:d3:5b", 
         "eth1": "02:59:3d:6e:60:4f", 
         "eth0": "02:df:bc:0c:28:79"
+    }, 
+    "ffs-client-s12gw01n03": {
+        "node": "s12gw01n03", 
+        "addr": "fd42::12:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:12:01:03", 
+        "net": "ffs-c120103", 
+        "eth2": "02:03:66:a8:47:1a", 
+        "eth1": "02:e3:6a:51:df:c4", 
+        "eth0": "02:f4:0a:d6:cc:f7"
+    }, 
+    "ffs-client-s23gw01n03": {
+        "node": "s23gw01n03", 
+        "addr": "fd42::23:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:23:01:03", 
+        "net": "ffs-c230103", 
+        "eth2": "02:1f:9f:5d:ac:94", 
+        "eth1": "02:cc:af:7d:ee:38", 
+        "eth0": "02:01:02:fd:33:11"
+    }, 
+    "ffs-client-s08gw08n06": {
+        "node": "s08gw08n06", 
+        "addr": "fd42::08:08:06", 
+        "addrV6": "2001:4ba0:fff1:f8:42:08:08:06", 
+        "net": "ffs-c080806", 
+        "eth2": "02:0d:c9:3d:3a:0f", 
+        "eth1": "02:01:49:df:e5:80", 
+        "eth0": "02:05:53:53:da:34"
+    }, 
+    "ffs-client-s18gw01n03": {
+        "node": "s18gw01n03", 
+        "addr": "fd42::18:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:18:01:03", 
+        "net": "ffs-c180103", 
+        "eth2": "02:af:5c:62:77:0a", 
+        "eth1": "02:04:b5:54:23:1a", 
+        "eth0": "02:3f:7f:18:d2:06"
+    }, 
+    "ffs-client-s02gw10": {
+        "node": "s02gw10", 
+        "addr": "fd42::02:10:0", 
+        "addrV6": "2001:4ba0:fff1:f8:42:02:10:0", 
+        "net": "ffs-c0210", 
+        "eth2": "02:a6:da:8d:d1:9d", 
+        "eth1": "02:78:8d:53:e2:a9", 
+        "eth0": "02:bc:c0:e9:04:83"
+    }, 
+    "ffs-client-s01gw01": {
+        "node": "s01gw01", 
+        "addr": "fd42::01:01:0", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:01:0", 
+        "net": "ffs-c0101", 
+        "eth2": "02:62:ea:0c:ec:94", 
+        "eth1": "02:ec:ce:b9:76:5b", 
+        "eth0": "02:e5:0e:fa:1f:2c"
+    }, 
+    "ffs-client-s14gw08n01": {
+        "node": "s14gw08n01", 
+        "addr": "fd42::14:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:14:08:01", 
+        "net": "ffs-c140801", 
+        "eth2": "02:17:a5:e5:58:9e", 
+        "eth1": "02:62:b8:d9:60:f1", 
+        "eth0": "02:a8:6f:66:66:64"
+    }, 
+    "ffs-client-s16gw08n01": {
+        "node": "s16gw08n01", 
+        "addr": "fd42::16:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:16:08:01", 
+        "net": "ffs-c160801", 
+        "eth2": "02:4e:ba:92:cd:5f", 
+        "eth1": "02:67:57:3c:69:e0", 
+        "eth0": "02:90:09:85:bc:aa"
+    }, 
+    "ffs-client-s06gw04n01": {
+        "node": "s06gw04n01", 
+        "addr": "fd42::06:04:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:06:04:01", 
+        "net": "ffs-c060401", 
+        "eth2": "02:a2:59:b9:6c:a6", 
+        "eth1": "02:44:c2:10:e9:fe", 
+        "eth0": "02:d0:b7:27:06:c6"
+    }, 
+    "ffs-client-s11gw01n03": {
+        "node": "s11gw01n03", 
+        "addr": "fd42::11:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:11:01:03", 
+        "net": "ffs-c110103", 
+        "eth2": "02:37:45:29:29:9a", 
+        "eth1": "02:cb:0e:2b:6a:b9", 
+        "eth0": "02:de:16:02:92:0b"
+    }, 
+    "ffs-client-s04gw01n01": {
+        "node": "s04gw01n01", 
+        "addr": "fd42::04:01:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:01:01", 
+        "net": "ffs-c040101", 
+        "eth2": "02:23:26:35:89:91", 
+        "eth1": "02:0d:1e:eb:33:47", 
+        "eth0": "02:1b:a6:7f:6e:56"
+    }, 
+    "ffs-client-s04gw01n03": {
+        "node": "s04gw01n03", 
+        "addr": "fd42::04:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:01:03", 
+        "net": "ffs-c040103", 
+        "eth2": "02:b2:75:6b:cf:8e", 
+        "eth1": "02:d4:18:ec:dd:85", 
+        "eth0": "02:43:c6:1c:b7:cb"
+    }, 
+    "ffs-client-s00gw10": {
+        "node": "s00gw10", 
+        "addr": "fd42::00:10:0", 
+        "addrV6": "2001:4ba0:fff1:f8:42:00:10:0", 
+        "net": "ffs-c0010", 
+        "eth2": "02:82:c9:67:6e:6a", 
+        "eth1": "02:3d:1e:d7:93:f8", 
+        "eth0": "02:24:2a:2a:fa:11"
+    }, 
+    "ffs-client-s05gw01n03": {
+        "node": "s05gw01n03", 
+        "addr": "fd42::05:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:05:01:03", 
+        "net": "ffs-c050103", 
+        "eth2": "02:44:fd:d8:46:fa", 
+        "eth1": "02:d8:ab:c7:43:df", 
+        "eth0": "02:a7:57:81:68:2e"
+    }, 
+    "ffs-client-s05gw01n01": {
+        "node": "s05gw01n01", 
+        "addr": "fd42::05:01:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:05:01:01", 
+        "net": "ffs-c050101", 
+        "eth2": "02:c3:7c:10:c2:a8", 
+        "eth1": "02:26:42:51:fb:11", 
+        "eth0": "02:e5:92:f1:e6:98"
+    }, 
+    "ffs-client-s16gw01n03": {
+        "node": "s16gw01n03", 
+        "addr": "fd42::16:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:16:01:03", 
+        "net": "ffs-c160103", 
+        "eth2": "02:30:4b:8a:fc:21", 
+        "eth1": "02:f2:3f:b9:91:f5", 
+        "eth0": "02:2f:de:66:37:59"
+    }, 
+    "ffs-client-s07gw08n06": {
+        "node": "s07gw08n06", 
+        "addr": "fd42::07:08:06", 
+        "addrV6": "2001:4ba0:fff1:f8:42:07:08:06", 
+        "net": "ffs-c070806", 
+        "eth2": "02:89:f0:54:18:2e", 
+        "eth1": "02:14:44:fd:39:18", 
+        "eth0": "02:28:42:d9:24:b6"
+    }, 
+    "ffs-client-s07gw08n01": {
+        "node": "s07gw08n01", 
+        "addr": "fd42::07:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:07:08:01", 
+        "net": "ffs-c070801", 
+        "eth2": "02:5f:a7:f8:78:69", 
+        "eth1": "02:e6:92:71:9e:b2", 
+        "eth0": "02:41:57:fc:1c:6c"
+    }, 
+    "ffs-client-s04gw08n02": {
+        "node": "s04gw08n02", 
+        "addr": "fd42::04:08:02", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:08:02", 
+        "net": "ffs-c040802", 
+        "eth2": "02:da:e2:22:98:33", 
+        "eth1": "02:01:b5:b7:e5:26", 
+        "eth0": "02:5d:dc:1c:13:67"
+    }, 
+    "ffs-client-s04gw08n00": {
+        "node": "s04gw08n00", 
+        "addr": "fd42::04:08:00", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:08:00", 
+        "net": "ffs-c040800", 
+        "eth2": "02:e9:13:a8:bf:b7", 
+        "eth1": "02:de:aa:e6:4d:e2", 
+        "eth0": "02:7d:09:3c:ba:36"
+    }, 
+    "ffs-client-s04gw08n01": {
+        "node": "s04gw08n01", 
+        "addr": "fd42::04:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:08:01", 
+        "net": "ffs-c040801", 
+        "eth2": "02:38:f8:59:75:11", 
+        "eth1": "02:32:a1:1a:62:91", 
+        "eth0": "02:de:6f:da:47:15"
+    }, 
+    "ffs-client-s04gw08n06": {
+        "node": "s04gw08n06", 
+        "addr": "fd42::04:08:06", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:08:06", 
+        "net": "ffs-c040806", 
+        "eth2": "02:3e:51:9b:60:18", 
+        "eth1": "02:ee:a1:8c:18:bc", 
+        "eth0": "02:a5:b9:88:f8:67"
+    }, 
+    "ffs-client-s04gw07n02": {
+        "node": "s04gw07n02", 
+        "addr": "fd42::04:07:02", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:07:02", 
+        "net": "ffs-c040702", 
+        "eth2": "02:e4:05:c5:59:5d", 
+        "eth1": "02:f9:b2:89:69:24", 
+        "eth0": "02:1b:4a:1d:45:54"
+    }, 
+    "ffs-client-s04gw08n04": {
+        "node": "s04gw08n04", 
+        "addr": "fd42::04:08:04", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:08:04", 
+        "net": "ffs-c040804", 
+        "eth2": "02:84:8c:73:3f:c4", 
+        "eth1": "02:54:9c:86:a1:d4", 
+        "eth0": "02:00:67:54:bb:0e"
+    }, 
+    "ffs-client-s04gw07n00": {
+        "node": "s04gw07n00", 
+        "addr": "fd42::04:07:00", 
+        "addrV6": "2001:4ba0:fff1:f8:42:04:07:00", 
+        "net": "ffs-c040700", 
+        "eth2": "02:eb:05:90:d6:02", 
+        "eth1": "02:e7:50:93:2e:70", 
+        "eth0": "02:a8:b4:8e:9c:57"
+    }, 
+    "ffs-client-s03gw08n02": {
+        "node": "s03gw08n02", 
+        "addr": "fd42::03:08:02", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:08:02", 
+        "net": "ffs-c030802", 
+        "eth2": "02:c3:2c:d1:ae:f4", 
+        "eth1": "02:c6:ee:d4:ad:69", 
+        "eth0": "02:dd:79:e2:c1:9a"
+    }, 
+    "ffs-client-s03gw08n01": {
+        "node": "s03gw08n01", 
+        "addr": "fd42::03:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:08:01", 
+        "net": "ffs-c030801", 
+        "eth2": "02:50:05:83:e8:21", 
+        "eth1": "02:44:e9:7e:a7:fb", 
+        "eth0": "02:ce:9a:25:db:eb"
+    }, 
+    "ffs-client-s03gw08n00": {
+        "node": "s03gw08n00", 
+        "addr": "fd42::03:08:00", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:08:00", 
+        "net": "ffs-c030800", 
+        "eth2": "02:54:49:e2:74:9f", 
+        "eth1": "02:55:21:29:83:fd", 
+        "eth0": "02:7b:06:47:f4:60"
+    }, 
+    "ffs-client-s03gw08n06": {
+        "node": "s03gw08n06", 
+        "addr": "fd42::03:08:06", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:08:06", 
+        "net": "ffs-c030806", 
+        "eth2": "02:37:d7:0b:f5:e2", 
+        "eth1": "02:43:e7:a5:38:5d", 
+        "eth0": "02:20:4e:20:bb:b0"
+    }, 
+    "ffs-client-s03gw08n04": {
+        "node": "s03gw08n04", 
+        "addr": "fd42::03:08:04", 
+        "addrV6": "2001:4ba0:fff1:f8:42:03:08:04", 
+        "net": "ffs-c030804", 
+        "eth2": "02:78:a1:e8:92:23", 
+        "eth1": "02:30:da:a3:cb:99", 
+        "eth0": "02:11:dc:11:ee:71"
+    }, 
+    "ffs-client-s01gw08n01": {
+        "node": "s01gw08n01", 
+        "addr": "fd42::01:08:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:08:01", 
+        "net": "ffs-c010801", 
+        "eth2": "02:a8:c8:98:52:d1", 
+        "eth1": "02:53:9c:46:28:7c", 
+        "eth0": "02:8f:7e:42:f3:5f"
+    }, 
+    "ffs-client-s01gw08n00": {
+        "node": "s01gw08n00", 
+        "addr": "fd42::01:08:00", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:08:00", 
+        "net": "ffs-c010800", 
+        "eth2": "02:a9:f9:5b:2e:94", 
+        "eth1": "02:60:af:1b:e6:c0", 
+        "eth0": "02:95:1b:83:24:3b"
+    }, 
+    "ffs-client-s01gw08n02": {
+        "node": "s01gw08n02", 
+        "addr": "fd42::01:08:02", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:08:02", 
+        "net": "ffs-c010802", 
+        "eth2": "02:77:95:6d:bd:a6", 
+        "eth1": "02:40:16:d8:b4:48", 
+        "eth0": "02:90:2a:55:12:9a"
+    }, 
+    "ffs-client-s01gw08n04": {
+        "node": "s01gw08n04", 
+        "addr": "fd42::01:08:04", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:08:04", 
+        "net": "ffs-c010804", 
+        "eth2": "02:68:46:32:6a:e1", 
+        "eth1": "02:66:17:de:53:10", 
+        "eth0": "02:a2:6b:0a:26:e1"
+    }, 
+    "ffs-client-s01gw08n06": {
+        "node": "s01gw08n06", 
+        "addr": "fd42::01:08:06", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:08:06", 
+        "net": "ffs-c010806", 
+        "eth2": "02:05:69:05:6c:c0", 
+        "eth1": "02:af:58:8f:20:23", 
+        "eth0": "02:a4:ae:46:0d:be"
+    }, 
+    "ffs-client-s01gw05n02": {
+        "node": "s01gw05n02", 
+        "addr": "fd42::01:05:02", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:05:02", 
+        "net": "ffs-c010502", 
+        "eth2": "02:57:a9:2b:0a:ca", 
+        "eth1": "02:4e:f2:f8:32:1c", 
+        "eth0": "02:57:cf:4d:43:0d"
+    }, 
+    "ffs-client-s01gw05n03": {
+        "node": "s01gw05n03", 
+        "addr": "fd42::01:05:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:05:03", 
+        "net": "ffs-c010503", 
+        "eth2": "02:bc:af:4f:10:e5", 
+        "eth1": "02:fe:b7:a8:fc:ab", 
+        "eth0": "02:35:c1:30:ba:e5"
+    }, 
+    "ffs-client-s17gw01n03": {
+        "node": "s17gw01n03", 
+        "addr": "fd42::17:01:03", 
+        "addrV6": "2001:4ba0:fff1:f8:42:17:01:03", 
+        "net": "ffs-c170103", 
+        "eth2": "02:c1:08:fa:5f:88", 
+        "eth1": "02:ef:e6:f1:c6:ef", 
+        "eth0": "02:25:88:d7:4f:9f"
+    }, 
+    "ffs-client-s01gw05n01": {
+        "node": "s01gw05n01", 
+        "addr": "fd42::01:05:01", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:05:01", 
+        "net": "ffs-c010501", 
+        "eth2": "02:4c:1b:27:ee:62", 
+        "eth1": "02:e8:5c:7e:21:ab", 
+        "eth0": "02:4c:66:1c:9c:8b"
+    }, 
+    "ffs-client-s00gw09": {
+        "node": "s00gw09", 
+        "addr": "fd42::00:09:0", 
+        "addrV6": "2001:4ba0:fff1:f8:42:00:09:0", 
+        "net": "ffs-c0009", 
+        "eth2": "02:af:e3:5d:c1:8b", 
+        "eth1": "02:63:63:7b:58:ef", 
+        "eth0": "02:1d:97:7a:64:1f"
+    }, 
+    "ffs-client-s01gw05n04": {
+        "node": "s01gw05n04", 
+        "addr": "fd42::01:05:04", 
+        "addrV6": "2001:4ba0:fff1:f8:42:01:05:04", 
+        "net": "ffs-c010504", 
+        "eth2": "02:70:87:18:f9:8d", 
+        "eth1": "02:27:08:7d:f0:4f", 
+        "eth0": "02:8f:33:f5:80:b2"
+    }, 
+    "ffs-client-s00gw01": {
+        "node": "s00gw01", 
+        "addr": "fd42::00:01:0", 
+        "addrV6": "2001:4ba0:fff1:f8:42:00:01:0", 
+        "net": "ffs-c0001", 
+        "eth2": "02:e0:48:71:07:17", 
+        "eth1": "02:b6:58:32:3a:8d", 
+        "eth0": "02:92:ad:90:a5:0d"
     }
 }

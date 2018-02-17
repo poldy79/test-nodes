@@ -4,6 +4,7 @@ import sys
 import md5
 import subprocess
 import uuid
+import os
 from string import Template
 
 network_template = """<network>
@@ -38,6 +39,10 @@ def generateNetworkConfig(instance):
     fp.close()
 
 def generatePeerFile(name,mac,public,segment):
+    if not os.path.isdir("peers-ffs/%s"%(segment)):
+        os.mkdir("peers-ffs/%s"%(segment))
+        os.mkdir("peers-ffs/%s/peers"%(segment))
+
     fp = open("peers-ffs/%s/peers/ffs-%s"%(segment,mac.replace(":","")),"wb")
     fp.write("#MAC: %s\n"%(mac))
     fp.write("#Hostname: %s\n"%(name))
@@ -45,35 +50,25 @@ def generatePeerFile(name,mac,public,segment):
     fp.write("key \"%s\";\n"%(public))
     fp.close()
 
-gws = {}
-ports ={}
-ports["vpn00"] = "10037"
-ports["vpn01"] = "10041"
-ports["vpn02"] = "10042"
-ports["vpn03"] = "10043"
-ports["vpn04"] = "10044"
-ports["vpn05"] = "10045"
-ports["vpn06"] = "10046"
-ports["vpn07"] = "10047"
-ports["vpn08"] = "10048"
-
 def getPort(vpn):
-    if vpn=="vpn00":
-        return 10037
     vpn = int(vpn[3:])
-    return 10040+vpn
+    return 10200+vpn
+
+gws = {}
 
 #gws["gw01"] = [0]
 gws["gw01n01"] = [1,2,3,4,5,6,7,8]
-gws["gw01n03"] = [1,2,3,4,5,6,7,8]
-gws["gw05n01"] = [0,1,2,3,4]
+gws["gw01n03"] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
+gws["gw04n01"] = [1,2,3,4,5,6,7,8]
+gws["gw05n01"] = [1,2,3,4]
 gws["gw05n02"] = [1,2,3,4]
 gws["gw05n03"] = [1,2,3,4]
+gws["gw05n04"] = [1,2,3,4,5,6,7,8]
 gws["gw08n00"] = [1,2,3,4]
+gws["gw08n01"] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 gws["gw08n02"] = [1,2,3,4]
 gws["gw08n04"] = [1,2,3,4]
-#gws["gw09"] = [0]
-#gws["gw10"] = [0,1,2,3,4]
+gws["gw08n06"] = [1,2,3,4,5,6,7,8]
 
 
 
@@ -82,12 +77,16 @@ dns["gw01"] = "gw01.freifunk-stuttgart.de"
 dns["gw01n00"] = "gw01n00.freifunk-stuttgart.de"
 dns["gw01n01"] = "gw01n01.freifunk-stuttgart.de"
 dns["gw01n03"] = "gw01n03.freifunk-stuttgart.de"
+dns["gw04n01"] = "gw04n01.freifunk-stuttgart.de"
 dns["gw05n01"] = "gw05n01.freifunk-stuttgart.de"
 dns["gw05n02"] = "gw05n02.freifunk-stuttgart.de"
 dns["gw05n03"] = "gw05n03.freifunk-stuttgart.de"
-dns["gw08n00"] = "gw08.albi.info"
+dns["gw05n04"] = "gw05n04.freifunk-stuttgart.de"
+dns["gw08n00"] = "gw08n00.gw.freifunk-stuttgart.de"
+dns["gw08n01"] = "gw08n01.gw.freifunk-stuttgart.de"
 dns["gw08n02"] = "gw082.albi.info"
 dns["gw08n04"] = "gw08n04.ffs.ovh"
+dns["gw08n06"] = "gw08n06.gw.freifunk-stuttgart.de"
 dns["gw09"] = "gw09.freifunk-stuttgart.de"
 dns["gw10"] = "gw10.freifunk-stuttgart.de"
 
@@ -99,7 +98,9 @@ try:
 except:
     instances = {}
 
-for s in [1,2,3,4,5,6,7,8]:
+SEGMENTS=24
+
+for s in range(0,SEGMENTS+1):
     for gw in gws:
         if s in gws[gw]:
             segment = ("%i"%(s)).zfill(2)
@@ -122,28 +123,25 @@ for s in [1,2,3,4,5,6,7,8]:
             instances[name] = instance
             generateNetworkConfig(instance)
             generatePeerFile(instance["name"],instance["mac"],instance["public"],instance["segment"])
-fp = open("node-config.json","wb")
-json.dump(instances,fp, indent=4)
-fp.close()
+with open("node-config.json","wb") as fp:
+    json.dump(instances,fp, indent=4)
 
 try:
-    fp = open("client-config.json","rb")
-    clients = json.load(fp)
-    fp.close()
+    with open("client-config.json","r") as fp:
+        clients = json.load(fp)
 except:
     clients = {}
 
 for instance in instances:
     i = instances[instance]
     clientName = i["name"].replace("PoldyTestKvm","client")
-    print clientName
+    #print clientName
 
 
 for instance in instances:
     i = instances[instance]
     port = getPort(i["segment"])
     if i["remote"] in dns:
-        print "./deploy-node.sh  %s %s %s %s %s %s %s"%(i["name"],i["if_name"],i["mac"],i["secret"],i["gw"],dns[i["remote"]],ports[i["segment"]])
-        #print "./deploy-node.sh  %s %s %s %s %s %s %s"%(i["name"],i["if_name"],i["mac"],i["secret"],i["gw"],dns[i["remote"]],port)
+        print "./deploy-node.sh  %s %s %s %s %s %s %s"%(i["name"],i["if_name"],i["mac"],i["secret"],i["gw"],dns[i["remote"]],port)
     else:
         print "%s not in dns"%(i["remote"])

@@ -45,6 +45,7 @@ for instance in instances:
     c["node"] = instance
     c["eth0"] = getMacFromName("%s%%%s"%(clientName,"eth0"))
     c["eth1"] = getMacFromName("%s%%%s"%(clientName,"eth1"))
+    c["eth2"] = getMacFromName("%s%%%s"%(clientName,"eth2"))
     clients[clientName] = c
     c["net"] = i["if_name"]
     t = c["eth0"].replace(":","")
@@ -52,7 +53,7 @@ for instance in instances:
     if i == "":
         i = "0"
     c["addr"] = "fd42::%s:%s:%s"%(c["net"][5:7],c["net"][7:9],i)
-
+    c["addrV6"] = "2001:4ba0:fff1:f8:42:%s:%s:%s"%(c["net"][5:7],c["net"][7:9],i)
 
 fp = open("client-config.json","wb")
 json.dump(clients,fp, indent=4)
@@ -61,5 +62,5 @@ fp.close()
 
 for client in clients:
     c = clients[client]
-    print "./deploy-client.sh %s %s %s %s %s"%(client,c["net"],c["eth0"],c["eth1"],c["addr"])
+    print "./deploy-client.sh %s %s %s %s %s %s %s"%(client,c["net"],c["eth0"],c["eth1"],c["addr"],c["eth2"],c["addrV6"])
 

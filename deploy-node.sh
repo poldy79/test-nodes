@@ -15,11 +15,12 @@ echo Creating $1
 virsh destroy $NAME
 virsh undefine $NAME
 
-curl  -s http://firmware.freifunk-stuttgart.de/gluon/nightly/factory/gluon-ffs-x86-64.img.gz | gunzip  > /var/lib/libvirt/images/$NAME.img
+curl  -s http://firmware.freifunk-stuttgart.de/gluon/archive/1.3/factory/gluon-ffs-x86-64.img.gz | gunzip  > /var/lib/libvirt/images/$NAME.img
 virsh net-create networks/ffs-nodes
 virsh net-create networks/$NETWORK
+#set -e 
 ifconfig $NETWORK:0 192.168.1.100
-virt-install --name $NAME --ram 32 -f /var/lib/libvirt/images/$NAME.img,device=disk --noautoconsole --network network=$NETWORK,model=virtio,mac=$MAC --network network=ffs-nodes,model=virtio --import
+virt-install --name $NAME --ram 48 -f /var/lib/libvirt/images/$NAME.img,device=disk --noautoconsole --network network=$NETWORK,model=virtio,mac=$MAC --network network=ffs-nodes,model=virtio --os-variant virtio26 --import
 
 sleep 30
 #send "cat ~/.ssh/id_rsa.pub > /etc/dropbear/authorized_keys\n\r"
@@ -55,6 +56,7 @@ $SSH uci set fastd.mesh_vpn_backbone_peer_gw09.enabled='0'
 $SSH uci set fastd.mesh_vpn_backbone_peer_gw10.enabled='0'
 $SSH uci set fastd.mesh_vpn_backbone_peer_$GW.enabled='1'
 $SSH uci set fastd.mesh_vpn_backbone_peer_$GW.remote=\'\"$REMOTE\" port $PORT\'
+$SSH uci set fastd.mesh_vpn_backbone.auto_segment=0
 $SSH uci commit fastd
 #$SSH opkg update
 #$SSH opkg install mtr
