@@ -126,10 +126,10 @@ except:
 for instance in instances:
     i = instances[instance]
     clientName = i["name"].replace(nodebasename,"client")
-    #print clientName
+    #print(clientName)
 
 
 for instance in instances:
     i = instances[instance]
     port = getPort(i["segment"])
-    print "./deploy-node.sh  %s %s %s %s %s %s.gw.freifunk-stuttgart.de %s"%(i["name"],i["if_name"],i["mac"],i["secret"],i["gw"],i["remote"],port)
+    print("./deploy-node.sh  %s %s %s %s %s %s.gw.freifunk-stuttgart.de %s"%(i["name"],i["if_name"],i["mac"],i["secret"],i["gw"],i["remote"],port))
