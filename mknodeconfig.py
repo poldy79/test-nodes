@@ -6,6 +6,7 @@ import subprocess
 import uuid
 import os
 from string import Template
+import sys
 
 network_template = """<network>
     <name>${if_name}</name>
@@ -15,6 +16,7 @@ network_template = """<network>
 """
 
 def getFastdKeys():
+    print("Generating fastd key...")
     output = subprocess.check_output(["/usr/bin/fastd", "--generate-key"],stderr=subprocess.STDOUT)
     lines = output.split("\n")
     public = lines[2].split(" ")[1]
@@ -34,11 +36,16 @@ def getMacFromName(name):
 def generateNetworkConfig(instance):
     tpl = Template(network_template)
     config = tpl.substitute(if_name=instance["if_name"], if_uuid=instance["if_uuid"])
+    if not os.path.isdir("networks"):
+        os.mkdir("networks")
     fp = open("networks/%s"%(instance["if_name"]),"wb")
     fp.write(config)
     fp.close()
 
 def generatePeerFile(name,mac,public,segment):
+    if not os.path.isdir("peers-ffs"):
+        print("peers-ffs does not exist, execute\ngit clone git@github.com:freifunk-stuttgart/peers-ffs.git")
+        sys.exit(1)
     if not os.path.isdir("peers-ffs/%s"%(segment)):
         os.mkdir("peers-ffs/%s"%(segment))
         os.mkdir("peers-ffs/%s/peers"%(segment))
