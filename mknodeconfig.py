@@ -63,6 +63,12 @@ def getPort(vpn):
 
 gws = {}
 
+if not os.path.isfile("nodebasename.txt"):
+    print("Create nodebasename.txt with a unique-identifier for your nodes")
+    sys.exit(1)
+with open("nodebasename.txt","r") as fp:
+    nodebasename = fp.read().strip()
+
 #gws["gw01"] = [0]
 gws["gw01n01"] = [1,2,3,4,5,6,7,8]
 gws["gw01n03"] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
@@ -117,7 +123,7 @@ for s in range(0,SEGMENTS+1):
             if name in instances:
                 instance = instances[name]
 
-            instance["name"] = "ffs-PoldyTestKvm-%s"%(name)
+            instance["name"] = "ffs-%s-%s"%(nodebasename,name)
             instance["mac"] = getMacFromName(instance["name"])
             if not ("public" in instance and "secret" in instance): 
                 (instance["secret"],instance["public"]) = getFastdKeys()
@@ -130,6 +136,7 @@ for s in range(0,SEGMENTS+1):
             instances[name] = instance
             generateNetworkConfig(instance)
             generatePeerFile(instance["name"],instance["mac"],instance["public"],instance["segment"])
+
 with open("node-config.json","wb") as fp:
     json.dump(instances,fp, indent=4)
 
@@ -141,7 +148,7 @@ except:
 
 for instance in instances:
     i = instances[instance]
-    clientName = i["name"].replace("PoldyTestKvm","client")
+    clientName = i["name"].replace(nodebasename,"client")
     #print clientName
 
 
