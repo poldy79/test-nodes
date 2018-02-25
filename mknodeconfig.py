@@ -38,9 +38,8 @@ def generateNetworkConfig(instance):
     config = tpl.substitute(if_name=instance["if_name"], if_uuid=instance["if_uuid"])
     if not os.path.isdir("networks"):
         os.mkdir("networks")
-    fp = open("networks/%s"%(instance["if_name"]),"wb")
-    fp.write(config)
-    fp.close()
+    with open("networks/%s"%(instance["if_name"]),"w") as fp:
+        fp.write(config)
 
 def generatePeerFile(name,mac,public,segment):
     if not os.path.isdir("peers-ffs"):
@@ -50,12 +49,11 @@ def generatePeerFile(name,mac,public,segment):
         os.mkdir("peers-ffs/%s"%(segment))
         os.mkdir("peers-ffs/%s/peers"%(segment))
 
-    fp = open("peers-ffs/%s/peers/ffs-%s"%(segment,mac.replace(":","")),"wb")
-    fp.write("#MAC: %s\n"%(mac))
-    fp.write("#Hostname: %s\n"%(name))
-    fp.write("#Segment: fix %s\n"%(segment.replace("vpn","")))
-    fp.write("key \"%s\";\n"%(public))
-    fp.close()
+    with open("peers-ffs/%s/peers/ffs-%s"%(segment,mac.replace(":","")),"w") as fp:
+        fp.write("#MAC: %s\n"%(mac))
+        fp.write("#Hostname: %s\n"%(name))
+        fp.write("#Segment: fix %s\n"%(segment.replace("vpn","")))
+        fp.write("key \"%s\";\n"%(public))
 
 def getPort(vpn):
     vpn = int(vpn[3:])
@@ -66,6 +64,7 @@ gws = {}
 if not os.path.isfile("nodebasename.txt"):
     print("Create nodebasename.txt with a unique-identifier for your nodes")
     sys.exit(1)
+
 with open("nodebasename.txt","r") as fp:
     nodebasename = fp.read().strip()
 
@@ -84,9 +83,8 @@ gws["gw08n04"] = [1,2,3,4]
 gws["gw08n06"] = [1,2,3,4,5,6,7,8]
 
 try:
-    fp = open("node-config.json","rb")
-    instances = json.load(fp)
-    fp.close()
+    with open("node-config.json","rb") as fp:
+        instances = json.load(fp)
 except:
     instances = {}
 
@@ -116,7 +114,7 @@ for s in range(0,SEGMENTS+1):
             generateNetworkConfig(instance)
             generatePeerFile(instance["name"],instance["mac"],instance["public"],instance["segment"])
 
-with open("node-config.json","wb") as fp:
+with open("node-config.json","w") as fp:
     json.dump(instances,fp, indent=4)
 
 try:
