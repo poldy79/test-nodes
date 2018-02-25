@@ -83,27 +83,6 @@ gws["gw08n02"] = [1,2,3,4]
 gws["gw08n04"] = [1,2,3,4]
 gws["gw08n06"] = [1,2,3,4,5,6,7,8]
 
-
-
-dns = {}
-dns["gw01"] = "gw01.freifunk-stuttgart.de"
-dns["gw01n00"] = "gw01n00.freifunk-stuttgart.de"
-dns["gw01n01"] = "gw01n01.freifunk-stuttgart.de"
-dns["gw01n03"] = "gw01n03.freifunk-stuttgart.de"
-dns["gw04n01"] = "gw04n01.freifunk-stuttgart.de"
-dns["gw05n01"] = "gw05n01.freifunk-stuttgart.de"
-dns["gw05n02"] = "gw05n02.freifunk-stuttgart.de"
-dns["gw05n03"] = "gw05n03.freifunk-stuttgart.de"
-dns["gw05n04"] = "gw05n04.freifunk-stuttgart.de"
-dns["gw08n00"] = "gw08n00.gw.freifunk-stuttgart.de"
-dns["gw08n01"] = "gw08n01.gw.freifunk-stuttgart.de"
-dns["gw08n02"] = "gw082.albi.info"
-dns["gw08n04"] = "gw08n04.ffs.ovh"
-dns["gw08n06"] = "gw08n06.gw.freifunk-stuttgart.de"
-dns["gw09"] = "gw09.freifunk-stuttgart.de"
-dns["gw10"] = "gw10.freifunk-stuttgart.de"
-
-
 try:
     fp = open("node-config.json","rb")
     instances = json.load(fp)
@@ -155,7 +134,4 @@ for instance in instances:
 for instance in instances:
     i = instances[instance]
     port = getPort(i["segment"])
-    if i["remote"] in dns:
-        print "./deploy-node.sh  %s %s %s %s %s %s %s"%(i["name"],i["if_name"],i["mac"],i["secret"],i["gw"],dns[i["remote"]],port)
-    else:
-        print "%s not in dns"%(i["remote"])
+    print "./deploy-node.sh  %s %s %s %s %s %s.gw.freifunk-stuttgart.de %s"%(i["name"],i["if_name"],i["mac"],i["secret"],i["gw"],i["remote"],port)
