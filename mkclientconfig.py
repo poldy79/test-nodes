@@ -18,20 +18,17 @@ def getMacFromName(name):
 
 
 try:
-    fp = open("node-config.json","rb")
-    instances = json.load(fp)
-    fp.close()
+    with open("node-config.json","rb") as fp:
+        instances = json.load(fp)
 except:
     instances = {}
 
-fp = open("node-config.json","wb")
-json.dump(instances,fp, indent=4)
-fp.close()
+with open("node-config.json","wb") as fp:
+   json.dump(instances,fp, indent=4)
 
 try:
-    fp = open("client-config.json","rb")
-    clients = json.load(fp)
-    fp.close()
+    with open("client-config.json","rb") as fp:
+        clients = json.load(fp)
 except:
     clients = {}
 
@@ -55,12 +52,11 @@ for instance in instances:
     c["addr"] = "fd42::%s:%s:%s"%(c["net"][5:7],c["net"][7:9],i)
     c["addrV6"] = "2001:4ba0:fff1:f8:42:%s:%s:%s"%(c["net"][5:7],c["net"][7:9],i)
 
-fp = open("client-config.json","wb")
-json.dump(clients,fp, indent=4)
-fp.close()
+with open("client-config.json","wb") as fp:
+    json.dump(clients,fp, indent=4)
 
 
 for client in clients:
     c = clients[client]
-    print "./deploy-client.sh %s %s %s %s %s %s %s"%(client,c["net"],c["eth0"],c["eth1"],c["addr"],c["eth2"],c["addrV6"])
+    print("./deploy-client.sh %s %s %s %s %s %s %s"%(client,c["net"],c["eth0"],c["eth1"],c["addr"],c["eth2"],c["addrV6"]))
 
