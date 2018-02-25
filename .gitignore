@@ -5,3 +5,5 @@ peers
 fastd
 networks
 d.sh
+node-config.json
+config
