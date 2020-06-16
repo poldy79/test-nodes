@@ -14,10 +14,16 @@ PORT=$7
 echo Creating $1
 virsh destroy $NAME
 virsh undefine $NAME
+URL=http://firmware.freifunk-stuttgart.de/gluon/archive/1.3/factory/gluon-ffs-x86-64.img.gz
+#URL=http://firmware.freifunk-stuttgart.de/gluon/archive/1.9/factory/gluon-ffs-x86-64.img.gz
+#URL=http://firmware.freifunk-stuttgart.de/gluon/archive/@leonard/2018-07-09_jenkins-ffs-firmware-185/factory/gluon-ffs-1.4%2B2018-07-09-g.f0103738-s.a21d3bd-x86-64.img.gz
+#URL=https://firmware.freifunk-stuttgart.de/gluon/archive/%40leonard/2018-07-09_jenkins-ffs-firmware-186/factory/gluon-ffs-1.5%2B2018-07-09-g.e968a225-s.512b64b-x86-generic.img.gz
 
-curl  -s http://firmware.freifunk-stuttgart.de/gluon/archive/1.3/factory/gluon-ffs-x86-64.img.gz | gunzip  > /var/lib/libvirt/images/$NAME.img
+curl  -s $URL | gunzip  > /var/lib/libvirt/images/$NAME.img
+#truncate -s 1G /var/lib/libvirt/images/$NAME.img
 virsh net-create networks/ffs-nodes
 virsh net-create networks/$NETWORK
+virsh net-create networks/ffs-clients
 #set -e 
 ifconfig $NETWORK:0 192.168.1.100
 virt-install --name $NAME --ram 48 -f /var/lib/libvirt/images/$NAME.img,device=disk --noautoconsole --network network=$NETWORK,model=virtio,mac=$MAC --network network=ffs-nodes,model=virtio --os-variant virtio26 --import
