@@ -3,26 +3,26 @@ lxc-destroy -f -n $1
 lxc-stop  -n $1
 
 IPV6=$5
-echo "
-lxc.network.type = veth
-lxc.network.flags = up
-lxc.network.link = ffs-clients
-lxc.network.hwaddr = $3
+echo "lxc.net.0.type = veth
+lxc.net.0.flags = up
+lxc.net.0.link = ffs-clients
+lxc.net.0.hwaddr = $3
 
-lxc.network.type = veth
-lxc.network.flags = up
-lxc.network.link = $2
-lxc.network.hwaddr = $4
+lxc.net.1.type = veth
+lxc.net.1.flags = up
+lxc.net.1.link = $2
+lxc.net.1.hwaddr = $4
 
-lxc.network.type = veth
-lxc.network.flags = up
-lxc.network.link = br0
-lxc.network.hwaddr = $6
-
+#lxc.net.2.type = veth
+#lxc.net.2.flags = up
+#lxc.net.2.link = virbr0
+#lxc.net.2.hwaddr = $6
 " > config 
 ROOT="/var/lib/lxc/$1/rootfs"
 
-lxc-create -n $1 -f config  -t debian -- -r jessie
+echo lxc-create -n $1 -f config  -B lvm --vgname vg0 -t debian -- -r buster
+#lxc-create -n $1 -f config  -B lvm --vgname vg0 -t debian -- -r buster
+lxc-create -n $1 -f config  -t debian -- -r buster
 echo "
 nameserver 8.8.8.8
 " > $ROOT/etc/resolv.conf

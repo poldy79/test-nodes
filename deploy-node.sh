@@ -14,26 +14,25 @@ PORT=$7
 echo Creating $1
 virsh destroy $NAME
 virsh undefine $NAME
-URL=http://firmware.freifunk-stuttgart.de/gluon/archive/1.3/factory/gluon-ffs-x86-64.img.gz
+#URL=http://firmware.freifunk-stuttgart.de/gluon/archive/1.3/factory/gluon-ffs-x86-64.img.gz
 #URL=http://firmware.freifunk-stuttgart.de/gluon/archive/1.9/factory/gluon-ffs-x86-64.img.gz
-#URL=http://firmware.freifunk-stuttgart.de/gluon/archive/@leonard/2018-07-09_jenkins-ffs-firmware-185/factory/gluon-ffs-1.4%2B2018-07-09-g.f0103738-s.a21d3bd-x86-64.img.gz
-#URL=https://firmware.freifunk-stuttgart.de/gluon/archive/%40leonard/2018-07-09_jenkins-ffs-firmware-186/factory/gluon-ffs-1.5%2B2018-07-09-g.e968a225-s.512b64b-x86-generic.img.gz
-
+URL=http://firmware.freifunk-stuttgart.de/gluon/archive/2.3%2B2021-05-26/images/factory/gluon-ffs-2.3%2B2021-05-26-g.ee284141-s.0ee017e-x86-64.img.gz
 curl  -s $URL | gunzip  > /var/lib/libvirt/images/$NAME.img
 #truncate -s 1G /var/lib/libvirt/images/$NAME.img
-virsh net-create networks/ffs-nodes
+#virsh net-create networks/ffs-nodes
 virsh net-create networks/$NETWORK
 virsh net-create networks/ffs-clients
 #set -e 
 ifconfig $NETWORK:0 192.168.1.100
-virt-install --name $NAME --ram 48 -f /var/lib/libvirt/images/$NAME.img,device=disk --noautoconsole --network network=$NETWORK,model=virtio,mac=$MAC --network network=ffs-nodes,model=virtio --os-variant virtio26 --import
+echo virt-install --name $NAME --ram 48 -f /var/lib/libvirt/images/$NAME.img,device=disk --noautoconsole --network network=$NETWORK,model=virtio,mac=$MAC --network network=ffs-nodes,model=virtio --os-variant virtio26 --import
+virt-install --name $NAME --ram 48 -f /var/lib/libvirt/images/$NAME.img,device=disk --noautoconsole --network network=$NETWORK,model=virtio,mac=$MAC --network network=default,model=virtio --os-variant linux --import
 
 sleep 30
 #send "cat ~/.ssh/id_rsa.pub > /etc/dropbear/authorized_keys\n\r"
 expect << EOF
 spawn telnet 192.168.1.1
 expect -re ".*#"
-send "echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEhG8fsFEngZfvPj5xxivQv7FoBN+8ONLC6Rf27VVJMY7vsXhZWlqnxdf8GWr9hpOeo5nPpb7g7KYO4m/DltdHk09FPtoELCBtttsIYZ0/6vTCSPMaQ22j/f8X6pVEhHXvhEujq1cCoOlQjs8SUr/FkMa8IgKy09kw2lDMCD7OLlLNP771OJ0BB4VboZl1B0IifBleZkyfw2hHEF3k/gYygfuVyz9UH/lGi23FJJvjKsn9yvwXuy/zK2RqilCjbvQ0iE/J6weULP8KLbtl3YrnAbVIxStxoajxNiaOK52v1E9HsvShBDJalUtU1gzTLZbKlcvW0vGVywaknrBt70hZ root@bender.selfhosted.de' > /etc/dropbear/authorized_keys\n\r"
+send "echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5jQU6UhGFfeQrEZ09cNjyFuOrOKZxslGGznblcr/SSjHGCtISk9Z4bGquMAuqcn4hd6xlT+SyRJaIivkAWFfzpUKFDtg4MyE47s82Ny0ZGHvP+I4BVQsjdwYFKZLK9iqmkqZ52YrgSSjbH1QKKHDqvYx97X2hZUDx96lNzQrZAxzr21UEIqxGTXjcrhCDy+g81gyHQLnPc/RgU28JKEtmm1yOWrlLyN5ylmmGrexyY2fo4asJIJ60+KWjbID7I0VDcCHV2g6GOkQBgBoY6VIX+3ipX3nN8ANdB24Vjf9906Vc+FQowQAFW/NxLRS6bS6LqwskTdkf2RHbPykuBrAl root@leela.selfhosted.de' > /etc/dropbear/authorized_keys\n\r"
 expect -re ".*#"
 send "/etc/init.d/dropbear restart\n\r"
 expect -re ".*#"
