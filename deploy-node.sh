@@ -29,15 +29,29 @@ virt-install --name $NAME --ram 48 -f /var/lib/libvirt/images/$NAME.img,device=d
 
 sleep 30
 #send "cat ~/.ssh/id_rsa.pub > /etc/dropbear/authorized_keys\n\r"
+#expect << EOF
+#spawn telnet 192.168.1.1
+#expect -re ".*#"
+#send "echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5jQU6UhGFfeQrEZ09cNjyFuOrOKZxslGGznblcr/SSjHGCtISk9Z4bGquMAuqcn4hd6xlT+SyRJaIivkAWFfzpUKFDtg4MyE47s82Ny0ZGHvP+I4BVQsjdwYFKZLK9iqmkqZ52YrgSSjbH1QKKHDqvYx97X2hZUDx96lNzQrZAxzr21UEIqxGTXjcrhCDy+g81gyHQLnPc/RgU28JKEtmm1yOWrlLyN5ylmmGrexyY2fo4asJIJ60+KWjbID7I0VDcCHV2g6GOkQBgBoY6VIX+3ipX3nN8ANdB24Vjf9906Vc+FQowQAFW/NxLRS6bS6LqwskTdkf2RHbPykuBrAl root@leela.selfhosted.de' > /etc/dropbear/authorized_keys\n\r"
+#expect -re ".*#"
+#send "/etc/init.d/dropbear restart\n\r"
+#expect -re ".*#"
+#send "exit\n\r"
+#EOF
+
 expect << EOF
-spawn telnet 192.168.1.1
+spawn virsh console $NAME
+expect -re ".*]"
+send "\n\r"
 expect -re ".*#"
 send "echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5jQU6UhGFfeQrEZ09cNjyFuOrOKZxslGGznblcr/SSjHGCtISk9Z4bGquMAuqcn4hd6xlT+SyRJaIivkAWFfzpUKFDtg4MyE47s82Ny0ZGHvP+I4BVQsjdwYFKZLK9iqmkqZ52YrgSSjbH1QKKHDqvYx97X2hZUDx96lNzQrZAxzr21UEIqxGTXjcrhCDy+g81gyHQLnPc/RgU28JKEtmm1yOWrlLyN5ylmmGrexyY2fo4asJIJ60+KWjbID7I0VDcCHV2g6GOkQBgBoY6VIX+3ipX3nN8ANdB24Vjf9906Vc+FQowQAFW/NxLRS6bS6LqwskTdkf2RHbPykuBrAl root@leela.selfhosted.de' > /etc/dropbear/authorized_keys\n\r"
 expect -re ".*#"
 send "/etc/init.d/dropbear restart\n\r"
 expect -re ".*#"
-send "exit\n\r"
+send "echo done\n"
 EOF
+
+
 #send "reboot\n\r"
 #sleep 30
 sleep 3

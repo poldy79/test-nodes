@@ -30,7 +30,7 @@ virsh net-create networks/ffs-clients
 #set -e 
 ifconfig $NETWORK:0 192.168.1.100
 echo virt-install --name $NAME --ram 64 -f /var/lib/libvirt/images/$NAME.img,device=disk --noautoconsole --network network=$NETWORK,model=virtio,mac=$MAC --network network=ffs-nodes,model=virtio --os-variant virtio26 --import
-virt-install --name $NAME --ram 128 -f /var/lib/libvirt/images/$NAME.img,device=disk --noautoconsole --network network=$NETWORK,model=virtio,mac=$MAC --network network=default,model=virtio --os-variant linux --import
+virt-install --name $NAME --ram 128 -f /var/lib/libvirt/images/$NAME.img,device=disk --noautoconsole --network network=$NETWORK,model=virtio,mac=$MAC --network network=default,model=virtio --os-variant auto --import
 
 sleep 30
 expect << EOF
