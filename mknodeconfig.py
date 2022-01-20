@@ -1,7 +1,7 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import json
 import sys
-import md5
+import hashlib 
 import subprocess
 import uuid
 import os
@@ -25,8 +25,7 @@ def getFastdKeys():
 
 
 def getMacFromName(name):
-    m = md5.new()
-    m.update(name)
+    m = hashlib.md5(name.encode("utf-8"))
     mac = []
     mac.append("02")
     for i,j in zip(range(0,10,2),range(2,12,2)):
@@ -68,7 +67,6 @@ if not os.path.isfile("nodebasename.txt"):
 with open("nodebasename.txt","r") as fp:
     nodebasename = fp.read().strip()
 
-#gws["gw01"] = [0]
 gws["gw01n03"] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32]
 gws["gw04n03"] = [1,2,3,4,5,6,7,8,14,25]
 gws["gw05n03"] = [1,2,3,4,5,5,5,5,5,25]
@@ -94,6 +92,7 @@ for s in range(0,SEGMENTS+1):
 
             instance["name"] = "ffs-%s-%s"%(nodebasename,name)
             instance["mac"] = getMacFromName(instance["name"])
+            instance["id"] = f"{segment}{gw.replace('gw0','').replace('n0','')}"
             if not ("public" in instance and "secret" in instance): 
                 (instance["secret"],instance["public"]) = getFastdKeys()
             instance["if_uuid"] = str(uuid.uuid5(uuid.NAMESPACE_OID,name))
@@ -107,7 +106,7 @@ for s in range(0,SEGMENTS+1):
             generatePeerFile(instance["name"],instance["mac"],instance["public"],instance["segment"])
 
 with open("node-config.json","w") as fp:
-    json.dump(instances,fp, indent=4)
+    json.dump(instances,fp, indent=4, sort_keys=True)
 
 try:
     with open("client-config.json","r") as fp:
@@ -124,4 +123,8 @@ for instance in instances:
 for instance in instances:
     i = instances[instance]
     port = getPort(i["segment"])
-    print("./deploy-node.sh  %s %s %s %s %s %s.gw.freifunk-stuttgart.de %s"%(i["name"],i["if_name"],i["mac"],i["secret"],i["gw"],i["remote"],port))
+    #print(i)
+    try:
+        print("./deploy-node.sh  %s %s %s %s %s %s.gw.freifunk-stuttgart.de %s"%(i["name"],i["id"],i["mac"],i["secret"],i["gw"],i["remote"],port))
+    except:
+        pass
