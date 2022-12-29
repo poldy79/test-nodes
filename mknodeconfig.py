@@ -124,7 +124,6 @@ for instance in instances:
 for instance in instances:
     i = instances[instance]
     port = getPort(i["segment"])
-    #print(i)
     try:
         print("./deploy-node.sh  %s %s %s %s %s %s.gw.freifunk-stuttgart.de %s"%(i["name"],i["id"],i["mac"],i["secret"],i["gw"],i["remote"],port))
     except:
