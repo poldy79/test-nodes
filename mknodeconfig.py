@@ -17,7 +17,7 @@ network_template = """<network>
 
 def getFastdKeys():
     print("Generating fastd key...")
-    output = subprocess.check_output(["/usr/bin/fastd", "--generate-key"],stderr=subprocess.STDOUT)
+    output = subprocess.check_output(["/usr/bin/fastd", "--generate-key"],stderr=subprocess.STDOUT).decode("utf-8")
     lines = output.split("\n")
     public = lines[2].split(" ")[1]
     secret = lines[1].split(" ")[1]
@@ -67,10 +67,11 @@ if not os.path.isfile("nodebasename.txt"):
 with open("nodebasename.txt","r") as fp:
     nodebasename = fp.read().strip()
 
-gws["gw01n03"] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32]
-gws["gw04n03"] = [1,2,3,4,5,6,7,8,14,25]
+gws["gw01n03"] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33]
+gws["gw04n03"] = [1,2,3,4,5,6,7,8,14,25,33]
+gws["gw05n02"] = [8,25,26]
 gws["gw05n03"] = [1,2,3,4,5,5,5,5,5,25]
-gws["gw09n03"] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,25]
+gws["gw09n03"] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,25,26,27,28,29,30,31,32,33]
 
 try:
     with open("node-config.json","rb") as fp:
@@ -78,7 +79,7 @@ try:
 except:
     instances = {}
 
-SEGMENTS=32
+SEGMENTS=33
 
 for s in range(0,SEGMENTS+1):
     for gw in gws:
