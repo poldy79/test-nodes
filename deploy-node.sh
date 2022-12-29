@@ -1,33 +1,52 @@
 #!/bin/bash
 #Parameter:
-#1: name: s00-gw01
+#1: name: s00-gw01n03
 #2: network ffs-c0000
 #3: mac
 #4: secret
+
 NAME=$1
 ID=$2
 VMID=8$ID
-NETWORK=vmbr$2
 MAC=$3
 SECRET=$4
 GW=$5
 REMOTE=$6
 PORT=$7
+
+#BR_INTERNET=vmbr1
+#BR_CLIENT=vmbr3
+source `hostname`.conf
+
+RAM=128
+DISKSIZE=1G
+VLAN=$ID
+DELAY=30
+
 echo Creating $1
 qm stop $VMID
-qm destroy 80113 --destroy-unreferenced-disks 1 --purge 1
-
-URL=http://firmware.freifunk-stuttgart.de/gluon/archive/2.3%2B2021-05-26/images/factory/gluon-ffs-2.3%2B2021-05-26-g.ee284141-s.0ee017e-x86-64.img.gz
-mkdir /zp0/vz-images/images/$VMID
+qm destroy $VMID --destroy-unreferenced-disks 1 --purge 1
+BASE=http://firmware.freifunk-stuttgart.de/gluon/archive
+HASHES=g.fffe05d3-s.9d037a1
+VERSION=2.6%2B2022-11-08
+FOLDER=${VERSION}-${HASHES}
+RELEASE=${FOLDER}
+URL=${BASE}/${FOLDER}/images/factory/gluon-ffs-${RELEASE}-x86-64.img.gz
 DEST=/zp0/vz-images/images/$VMID/vm-$VMID-disk-0.raw
-echo $URL
-echo $DEST
+mkdir /zp0/vz-images/images/$VMID
+echo URL: $URL
+echo DEST: $DEST
 curl  -s $URL | gunzip  > $DEST
-#virt-install --name $NAME --ram 48 -f /var/lib/libvirt/images/$NAME.img,device=disk --noautoconsole --network network=$NETWORK,model=virtio,mac=$MAC --network network=default,model=virtio --os-variant linux --import
-qm create $VMID --boot order=scsi0 --cores 1 --memory 64 --name $NAME --net0 virtio=$MAC,bridge=vmbr3,tag=$ID --net1 virtio,bridge=vmbr1 --ostype l26 --scsi0 images:$VMID/vm-$VMID-disk-0.raw,cache=writeback,size=1G --scsihw virtio-scsi-pci --serial0 socket --rng0 source=/dev/urandom
+qemu-img resize -f raw $DEST $DISKSIZE
+qm create $VMID --boot order=scsi0 --cores 1 --memory $RAM --name $NAME \
+	--net0 virtio=$MAC,bridge=${BR_CLIENT},tag=$VLAN \
+	--net1 virtio,bridge=${BR_INTERNET} --ostype l26 \
+	--scsi0 images:$VMID/vm-$VMID-disk-0.raw,cache=writeback,size=${DISKSIZE} \
+	--scsihw virtio-scsi-pci --serial0 socket --rng0 source=/dev/urandom
 qm start $VMID
-
-sleep 30
+echo -n Sleeping for $DELAY seconts...
+sleep $DELAY
+echo ok
 
 expect << EOF
 spawn qm terminal $VMID
