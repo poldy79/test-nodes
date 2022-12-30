@@ -58,74 +58,81 @@ def getPort(vpn):
     vpn = int(vpn[3:])
     return 10200+vpn
 
-gws = {}
 
-if not os.path.isfile("nodebasename.txt"):
-    print("Create nodebasename.txt with a unique-identifier for your nodes")
-    sys.exit(1)
+def getInstances():
+    gws = {}
+    if not os.path.isfile("nodebasename.txt"):
+        print("Create nodebasename.txt with a unique-identifier for your nodes")
+        sys.exit(1)
 
-with open("nodebasename.txt","r") as fp:
-    nodebasename = fp.read().strip()
+    with open("nodebasename.txt","r") as fp:
+        nodebasename = fp.read().strip()
 
-all_segments = list(range(1,34)) # Seg 1-33
-gws["gw01n03"] = all_segments
-gws["gw04n03"] = all_segments
-gws["gw05n02"] = [8,25,26]
-gws["gw05n03"] = all_segments
-gws["gw09n03"] = all_segments
+    all_segments = list(range(1,34)) # Seg 1-33
+    gws["gw01n03"] = all_segments
+    gws["gw04n03"] = all_segments
+    gws["gw05n02"] = [8,25,26]
+    gws["gw05n03"] = all_segments
+    gws["gw09n03"] = all_segments
 
-try:
-    with open("node-config.json","rb") as fp:
-        instances = json.load(fp)
-except:
-    instances = {}
-
-SEGMENTS=33
-
-for s in range(0,SEGMENTS+1):
-    for gw in gws:
-        if s in gws[gw]:
-            segment = ("%i"%(s)).zfill(2)
-            name = "s%s%s"%(segment,gw)
-
-            instance = {}
-            if name in instances:
-                instance = instances[name]
-
-            instance["name"] = "ffs-%s-%s"%(nodebasename,name)
-            instance["mac"] = getMacFromName(instance["name"])
-            instance["id"] = f"{segment}{gw.replace('gw0','').replace('n0','')}"
-            if not ("public" in instance and "secret" in instance): 
-                (instance["secret"],instance["public"]) = getFastdKeys()
-            instance["if_uuid"] = str(uuid.uuid5(uuid.NAMESPACE_OID,name))
-            instance["if_name"] = "ffs-c%s%s"%(segment,gw.replace("gw","").replace("n",""))
-            instance["segment"] = "vpn%s"%(segment)
-            instance["node_id"] = "ffs-%s"%(instance["mac"].replace(":",""))
-            instance["gw"] = gw[0:4]
-            instance["remote"] = gw
-            instances[name] = instance
-            generateNetworkConfig(instance)
-            generatePeerFile(instance["name"],instance["mac"],instance["public"],instance["segment"])
-
-with open("node-config.json","w") as fp:
-    json.dump(instances,fp, indent=4, sort_keys=True)
-
-try:
-    with open("client-config.json","r") as fp:
-        clients = json.load(fp)
-except:
-    clients = {}
-
-for instance in instances:
-    i = instances[instance]
-    clientName = i["name"].replace(nodebasename,"client")
-    #print(clientName)
-
-
-for instance in instances:
-    i = instances[instance]
-    port = getPort(i["segment"])
     try:
-        print("./deploy-node.sh  %s %s %s %s %s %s.gw.freifunk-stuttgart.de %s"%(i["name"],i["id"],i["mac"],i["secret"],i["gw"],i["remote"],port))
+        with open("node-config.json","rb") as fp:
+            instances = json.load(fp)
     except:
-        pass
+        instances = {}
+
+    SEGMENTS=33
+
+    for s in range(0,SEGMENTS+1):
+        for gw in gws:
+            if s in gws[gw]:
+                segment = ("%i"%(s)).zfill(2)
+                name = "s%s%s"%(segment,gw)
+
+                instance = {}
+                if name in instances:
+                    instance = instances[name]
+
+                instance["name"] = "ffs-%s-%s"%(nodebasename,name)
+                instance["mac"] = getMacFromName(instance["name"])
+                instance["id"] = f"{segment}{gw.replace('gw0','').replace('n0','')}"
+                if not ("public" in instance and "secret" in instance): 
+                    (instance["secret"],instance["public"]) = getFastdKeys()
+                instance["if_uuid"] = str(uuid.uuid5(uuid.NAMESPACE_OID,name))
+                instance["if_name"] = "ffs-c%s%s"%(segment,gw.replace("gw","").replace("n",""))
+                instance["segment"] = "vpn%s"%(segment)
+                instance["node_id"] = "ffs-%s"%(instance["mac"].replace(":",""))
+                instance["gw"] = gw[0:4]
+                instance["remote"] = gw
+                instance["port"] = getPort(instance["segment"])
+                instances[name] = instance
+                generateNetworkConfig(instance)
+                generatePeerFile(instance["name"],instance["mac"],instance["public"],instance["segment"])
+
+    with open("node-config.json","w") as fp:
+        json.dump(instances,fp, indent=4, sort_keys=True)
+
+    try:
+        with open("client-config.json","r") as fp:
+            clients = json.load(fp)
+    except:
+        clients = {}
+
+    for instance in instances:
+        i = instances[instance]
+        clientName = i["name"].replace(nodebasename,"client")
+        #print(clientName)
+    return instances
+
+def main():
+    instances = getInstances()
+    for instance in instances:
+        i = instances[instance]
+        #port = getPort(i["segment"])
+        try:
+            print("./deploy-node.sh  %s %s %s %s %s %s.gw.freifunk-stuttgart.de %s"%(i["name"],i["id"],i["mac"],i["secret"],i["gw"],i["remote"],i["port"]))
+        except:
+            pass
+
+if __name__ == "__main__":
+    main()
