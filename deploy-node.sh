@@ -32,17 +32,21 @@ VERSION=2.6%2B2022-11-08
 FOLDER=${VERSION}-${HASHES}
 RELEASE=${FOLDER}
 URL=${BASE}/${FOLDER}/images/factory/gluon-ffs-${RELEASE}-x86-64.img.gz
-DEST=/zp0/vz-images/images/$VMID/vm-$VMID-disk-0.raw
-mkdir /zp0/vz-images/images/$VMID
+DEST=/tmp/vm-$VMID-disk-0.raw
+#mkdir /zp0/vz-images/images/$VMID
 echo URL: $URL
 echo DEST: $DEST
-curl  -s $URL | gunzip  > $DEST
-qemu-img resize -f raw $DEST $DISKSIZE
 qm create $VMID --boot order=scsi0 --cores 1 --memory $RAM --name $NAME \
 	--net0 virtio=$MAC,bridge=${BR_CLIENT},tag=$VLAN \
 	--net1 virtio,bridge=${BR_INTERNET} --ostype l26 \
-	--scsi0 images:$VMID/vm-$VMID-disk-0.raw,cache=writeback,size=${DISKSIZE} \
-	--scsihw virtio-scsi-pci --serial0 socket --rng0 source=/dev/urandom
+	--serial0 socket --rng0 source=/dev/urandom
+
+curl  -s $URL | gunzip  > $DEST
+qemu-img resize -f raw $DEST $DISKSIZE
+qm importdisk $VMID $DEST $ZP
+rm $DEST
+qm set $VMID --scsihw virtio-scsi-pci --scsi0 $ZP:vm-$VMID-disk-0
+
 qm start $VMID
 echo -n Sleeping for $DELAY seconts...
 sleep $DELAY
@@ -54,8 +58,6 @@ expect -re ".*]"
 send "\n\r"
 expect -re ".*#"
 send "echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5jQU6UhGFfeQrEZ09cNjyFuOrOKZxslGGznblcr/SSjHGCtISk9Z4bGquMAuqcn4hd6xlT+SyRJaIivkAWFfzpUKFDtg4MyE47s82Ny0ZGHvP+I4BVQsjdwYFKZLK9iqmkqZ52YrgSSjbH1QKKHDqvYx97X2hZUDx96lNzQrZAxzr21UEIqxGTXjcrhCDy+g81gyHQLnPc/RgU28JKEtmm1yOWrlLyN5ylmmGrexyY2fo4asJIJ60+KWjbID7I0VDcCHV2g6GOkQBgBoY6VIX+3ipX3nN8ANdB24Vjf9906Vc+FQowQAFW/NxLRS6bS6LqwskTdkf2RHbPykuBrAl root@leela.selfhosted.de' > /etc/dropbear/authorized_keys\n\r"
-expect -re ".*#"
-send "/etc/init.d/dropbear restart\n\r"
 expect -re ".*#"
 send "uci set fastd.mesh_vpn.secret=$SECRET\n\r"
 expect -re ".*#"

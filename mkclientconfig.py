@@ -64,6 +64,6 @@ for client in clients:
     c = clients[client]
     #print(c)
     try:
-        print("./deploy-client.sh %s %s %s %s %s %s %s"%(client,c["vlan"],c["eth0"],c["eth1"],c["addr"],c["eth2"],c["addrV6"]))
+        print("./deploy-client.sh %s %s"%(client,c["vlan"]))
     except:
         pass

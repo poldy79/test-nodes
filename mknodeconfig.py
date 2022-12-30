@@ -67,11 +67,12 @@ if not os.path.isfile("nodebasename.txt"):
 with open("nodebasename.txt","r") as fp:
     nodebasename = fp.read().strip()
 
-gws["gw01n03"] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33]
-gws["gw04n03"] = [1,2,3,4,5,6,7,8,14,25,33]
+all_segments = list(range(1,34)) # Seg 1-33
+gws["gw01n03"] = all_segments
+gws["gw04n03"] = all_segments
 gws["gw05n02"] = [8,25,26]
-gws["gw05n03"] = [1,2,3,4,5,5,5,5,5,25]
-gws["gw09n03"] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,25,26,27,28,29,30,31,32,33]
+gws["gw05n03"] = all_segments
+gws["gw09n03"] = all_segments
 
 try:
     with open("node-config.json","rb") as fp:
