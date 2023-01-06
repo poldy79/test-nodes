@@ -152,7 +152,7 @@ if __name__ == "__main__":
     parser.add_argument('--segment','-s', dest='segment', action='store', required=True,
                     help='segment the node shall be deployed to)')
     parser.add_argument('--gw','-g', dest='gateway', action='store', required=True,
-                    help='gateway the node shall be deployed to)')
+                    help='gateway the node shall be deployed to, in format gwXXnYY')
     parser.add_argument('--url','-u', dest='url', action='store', required=False,
                     help='Firmware to be used')
 
